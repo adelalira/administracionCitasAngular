@@ -13,13 +13,9 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
 
- // email !: string;
-  //password !: string;
+ email !: string;
+password !: string;
 
-  user: User={
-    email:'',
-    password:''
-  }
 
   constructor(  private router:Router, 
                 private authService: AuthService
@@ -29,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this.authService.login(this.user.email,this.user.password)
+    this.authService.login(this.email,this.password)
     .subscribe( resp => {
       console.log(resp);
       localStorage.setItem('jwt',JSON.stringify(resp));
