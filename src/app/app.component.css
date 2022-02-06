@@ -1,0 +1,18 @@
+.logo{
+    width:90px;
+    padding: 1em;
+}
+
+.loginIcon{
+    color: white;
+    position: absolute;
+    right:    0;
+    padding-top: 1.2em;
+    padding-right: 1em;
+    font-size: 1.7em;
+
+}
+
+.verdeOscuro {
+    background-color: #46695e;
+}

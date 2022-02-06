@@ -26,30 +26,17 @@ password !: string;
 
   login(){
     this.authService.login(this.email,this.password)
-    .subscribe( resp => {
-      console.log(resp);
-      localStorage.setItem('jwt',JSON.stringify(resp));
-
-      this.router.navigateByUrl('/auth/register');
-    },(error)=>{
-      Swal.fire('El usuario o contraseña es erroneo');
-    }
-    
-    )
-
-
-    /*this.authService.login( this.email, this.password )
     .subscribe({
-       next: (resp => {
-         localStorage.setItem('token',resp.access_token!)
-         this.router.navigateByUrl('/register');
-      }),
-       error: resp => {
-         console.log(resp);
-         
-         Swal.fire('Error', resp.error.message, 'error')
-       }
-    });*/
+      next: (resp => {
+        localStorage.setItem('token',resp.access_token!)
+        this.router.navigateByUrl('/register');
+     }),
+      error: resp => {
+        console.log(resp);
+        
+        Swal.fire('Error', resp.error.message, 'error')
+      }
+   });
 }
 
 

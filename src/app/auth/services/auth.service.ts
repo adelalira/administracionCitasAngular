@@ -37,4 +37,14 @@ export class AuthService {
   }
 
 
+  register(miFormulario: any){
+    /*const url = `${this.baseUrl}/auth/login`;
+    const body = {
+      'email': email,
+      'password': password 
+    }
+    return this.http.post(url, body);*/
+  }
+
+
 }

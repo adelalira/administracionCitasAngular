@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -12,13 +14,14 @@ export class RegisterComponent implements OnInit {
 
 
   miFormulario: FormGroup = this.fb.group({
-    name:      ['', [ Validators.required]],
-    lastName:  ['', [ Validators.required]],
-    dni:       ['', [ Validators.required]],
-    telephone: ['', [ Validators.required]],
-    address:   ['', [ Validators.required]],
+    name:      ['', [ Validators.required, Validators.minLength(3)]],
+    lastName:  ['', [ Validators.required, Validators.minLength(3)]],
+    dni:       ['', [ Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
+    telephone: ['', [ Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
+    address:   ['', [ Validators.required, Validators.minLength(3)]],
     email:     ['', [ Validators.required, Validators.email ]],
     password:  ['', [ Validators.required, Validators.minLength(4) ]],
+    password2:  ['', [ Validators.required, Validators.minLength(4) ]]
   });
 
 
@@ -37,8 +40,8 @@ export class RegisterComponent implements OnInit {
   }
   
   constructor(  private fb:FormBuilder,
-                private router:Router
-                //FALTA LLAMAR AL SERVICIO
+                private router:Router,
+                private authService:AuthService
                 ) { }
 
   ngOnInit(): void {
@@ -50,12 +53,24 @@ export class RegisterComponent implements OnInit {
   }
 
 
-
   submitFormulario() {
 
     console.log(this.miFormulario.value);
 
     this.miFormulario.markAllAsTouched();
+
+   /* this.authService.register(this.miFormulario.value)
+    .subscribe({
+      next: (resp => {
+        this.router.navigateByUrl('/'); //va al home
+     }),
+      error: resp => {
+        console.log(resp);
+        
+        Swal.fire('Error', resp.error.message, 'error')
+      }
+   });
+    */
 
   }
 }

@@ -1,23 +1,89 @@
-<div class="row">
-    <div class="col">
+<div class="row text-center">
+    <div class="col-md-4 offset-md-4 mt-5">
 
         <form autocomplete="off" 
               [formGroup]="miFormulario"
               (ngSubmit)="submitFormulario()">
 
-            <!-- Nombre -->
+            <!-- Name -->
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Name</label>
                 <div class="col-sm-9">
                     <input type="text"
                            class="form-control"
                            formControlName="name"
-                           placeholder="name">
+                           placeholder="Pepe">
 
-                    <span class="form-text text-danger"
+                   <!-- <span class="form-text text-danger"
                           *ngIf="campoNoValido('nombre')">
                         Debe de ser en formato de nombre y apellido
-                    </span>
+                    </span>-->
+                </div>
+            </div>
+
+            <!-- Last Name -->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Last Name</label>
+                <div class="col-sm-9">
+                    <input type="text"
+                           class="form-control"
+                           formControlName="lastName"
+                           placeholder="García">
+
+                  <!--  <span class="form-text text-danger"
+                          *ngIf="campoNoValido('nombre')">
+                        Debe de ser en formato de nombre y apellido
+                    </span>-->
+                </div>
+            </div>
+
+
+            <!-- DNI -->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">DNI</label>
+                <div class="col-sm-9">
+                    <input type="text"
+                           class="form-control"
+                           formControlName="dni"
+                           placeholder="45876234T">
+
+                   <!--  <span class="form-text text-danger"
+                          *ngIf="campoNoValido('nombre')">
+                        Debe de ser en formato de nombre y apellido
+                    </span>-->
+                </div>
+            </div>
+
+            
+            <!-- Telephone -->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Telephone</label>
+                <div class="col-sm-9">
+                    <input type="number"
+                           class="form-control"
+                           formControlName="telephone"
+                           placeholder="674321456">
+
+                   <!--  <span class="form-text text-danger"
+                          *ngIf="campoNoValido('nombre')">
+                        Debe de ser en formato de nombre y apellido
+                    </span>-->
+                </div>
+            </div>
+
+            <!-- Address -->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Address</label>
+                <div class="col-sm-9">
+                    <input type="text"
+                           class="form-control"
+                           formControlName="address"
+                           placeholder="C/Guadiana nº56 3C">
+
+                   <!--  <span class="form-text text-danger"
+                          *ngIf="campoNoValido('nombre')">
+                        Debe de ser en formato de nombre y apellido
+                    </span>-->
                 </div>
             </div>
 
@@ -28,25 +94,10 @@
                     <input type="email"
                            class="form-control"
                            formControlName="email"
-                           placeholder="Email del usuario">
+                           placeholder="pepe@gmail.com">
                     <span class="form-text text-danger"
                            *ngIf="campoNoValido('email')">
                         {{ emailErrorMsg }}
-                    </span>
-                </div>
-            </div>
-
-            <!-- Username -->
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Username</label>
-                <div class="col-sm-9">
-                    <input type="text"
-                           class="form-control"
-                           formControlName="username"
-                           placeholder="Nombre código del usuario">
-                    <span class="form-text text-danger"
-                           *ngIf="campoNoValido('username')">
-                         El username no puede ser Strider
                     </span>
                 </div>
             </div>
@@ -58,7 +109,7 @@
                     <input type="password"
                            class="form-control"
                            formControlName="password"
-                           placeholder="Password de su cuenta">
+                           placeholder="Enter your password">
 
                     <span class="form-text text-danger"
                            *ngIf="campoNoValido('password')">
@@ -69,12 +120,12 @@
 
             <!-- Password2 -->
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Confirmar</label>
+                <label class="col-sm-3 col-form-label">Confirm Password</label>
                 <div class="col-sm-9">
                     <input type="password"
                            class="form-control"
                            formControlName="password2"
-                           placeholder="Confirmar la contraseña">
+                           placeholder="Confirm Password">
                     
                     <span class="form-text text-danger"
                            *ngIf="campoNoValido('password2')">
@@ -89,7 +140,7 @@
                     <button class="btn btn-primary float-end"
                             [disabled]="miFormulario.pending"
                             type="submit">
-                        Crear
+                        Register
                     </button>
                 </div>
             </div>
@@ -100,24 +151,20 @@
 </div>
 
 
-<h2>Form Valid: {{ miFormulario.valid }}</h2>
-<h2>Form Status: {{ miFormulario.status }}</h2>
-<h2>Form Pending: {{ miFormulario.pending }}</h2>
-<h2>Form errors</h2>
-<pre>{{ miFormulario.errors | json }}</pre>
+<div class="row">
+    <div class="col">
 
-<h5>Nombre</h5>
-<pre>{{ miFormulario.controls['nombre'].errors | json }}</pre>
+        <span>Valid</span>
+        <pre>{{ miFormulario.valid }}</pre>
 
-<h5>Email</h5>
-<pre>{{ miFormulario.controls['email'].errors | json }}</pre>
+        <span>Pristine</span>
+        <pre>{{ miFormulario.pristine }}</pre>
 
-<h5>Username</h5>
-<pre>{{ miFormulario.controls['username'].errors | json }}</pre>
+        <span>Touched</span>
+        <pre>{{ miFormulario.touched }}</pre>
 
+        <span>Value</span>
+        <pre>{{ miFormulario.value | json }}</pre>
 
-<h5>Password</h5>
-<pre>{{ miFormulario.controls['password'].errors | json }}</pre>
-
-<h5>Confirmar</h5>
-<pre>{{ miFormulario.controls['password2'].errors | json }}</pre>
+    </div>
+</div>
