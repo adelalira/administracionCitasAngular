@@ -16,8 +16,12 @@ export class RegisterComponent implements OnInit {
   miFormulario: FormGroup = this.fb.group({
     name:      ['', [ Validators.required, Validators.minLength(3)]],
     lastName:  ['', [ Validators.required, Validators.minLength(3)]],
-    dni:       ['', [ Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
-    telephone: ['', [ Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
+    dni:       ['', [ Validators.required, Validators.minLength(9), Validators.maxLength(9)],
+                      //Validators.pattern('[0-9]{8}[A-Z]{1}$')  //NO FUNCIONA
+                    ], 
+    age:       ['', [ Validators.required]],
+    telephone: ['', [ Validators.required, Validators.minLength(9), Validators.maxLength(9),
+                      Validators.min(600000000),Validators.max(899999999)]],
     address:   ['', [ Validators.required, Validators.minLength(3)]],
     email:     ['', [ Validators.required, Validators.email ]],
     password:  ['', [ Validators.required, Validators.minLength(4) ]],
