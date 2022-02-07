@@ -1,6 +1,7 @@
 .logo{
-    width:90px;
+    width:90px  ;
     padding: 1em;
+    float: left !important;
 }
 
 .loginIcon{
@@ -15,4 +16,11 @@
 
 .verdeOscuro {
     background-color: rgba(114, 183, 161, 255);
+}
+
+.nombre{
+    width: 150px;
+    padding-left: 0 !important;
+    margin-top: 0.8em;
+    margin-right: 8em;
 }
