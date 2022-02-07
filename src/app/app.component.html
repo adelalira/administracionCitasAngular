@@ -3,18 +3,20 @@
     <div class="row"> <!-- start row-->
       <header class="colorVerde">
         <img src="../../../assets/img/logo.png" class="logo" >
-        <i class="fas fa-user-alt loginIcon"></i>
+        <i class="fas fa-user-alt loginIcon" routerLink="auth/login" routerLinkActive="active"></i>
       </header>
     </div>  <!-- end row-->
 
 
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
+  <nav class="navbar navbar-expand navbar-dark">
     <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/">Home</a>
-        <a class="nav-item nav-link" routerLink="/auth/Login">Login</a>
-        <!--<a class="nav-item nav-link" routerLink="/admin">Services</a>
-        <a class="nav-item nav-link" routerLink="/admin">Users</a>
-        <a class="nav-item nav-link" (click)="logout()">Logout</a>-->
+      <ul class="nav">
+        <li class="nav-item" routerLink="" routerLinkActive="active"><a class="nav-link">Home</a></li> <!-- [routerLinkActiveOptions]="{exact:true}"-->
+        <li class="nav-item" routerLink="auth/login" routerLinkActive="active"><a class="nav-link" >Login</a></li>
+        <li class="nav-item" routerLink="servicios" routerLinkActive="active"><a class="nav-link" >Servicios</a></li>
+        <li class="nav-item" routerLink="usuarios" routerLinkActive="active"><a class="nav-link" >Usuario</a></li>
+      </ul>
+        <!-- <a class="nav-item nav-link" (click)="logout()">Logout</a>-->
     </div>
   </nav>
 </div>  

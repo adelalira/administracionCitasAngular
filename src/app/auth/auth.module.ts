@@ -7,19 +7,23 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import { HomeModule } from './home/home.module';
+import { LoginModule } from './login/login.module';
+import { RegisterModule } from './register/register.module';
 
 
 
 @NgModule({
-  declarations: [RegisterComponent,LoginComponent, MainComponent],
+  declarations: [ MainComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    HomeModule
+    HomeModule,
+    LoginModule,
+    RegisterModule
   ],
-  exports: [RegisterComponent,LoginComponent, MainComponent]
+  exports: [MainComponent]
 })
 export class AuthModule { }
