@@ -6,6 +6,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
+import { HomeModule } from './home/home.module';
 
 
 
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http'
     AuthRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HomeModule
   ],
   exports: [RegisterComponent,LoginComponent, MainComponent]
 })

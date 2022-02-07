@@ -29,7 +29,7 @@ password !: string;
     .subscribe({
       next: (resp => {
         localStorage.setItem('token',resp.access_token!)
-        this.router.navigateByUrl('/register');
+        this.router.navigateByUrl('/auth/register');
      }),
       error: resp => {
         console.log(resp);

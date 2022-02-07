@@ -9,7 +9,7 @@ const routes: Routes = [
     },
     {
       path: '**',
-      redirectTo: 'auth'
+      redirectTo: 'auth' //CAMBIAR A HOME
     }
   ];
   
