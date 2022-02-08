@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { AuthService } from '../services/auth.service';
+import { ValidatorService } from '../services/validator.service';
 
 @Component({
   selector: 'app-register',
@@ -15,15 +17,20 @@ export class RegisterComponent implements OnInit {
     lastName:  ['', [ Validators.required, Validators.minLength(3)]],
     dni:       ['', [ Validators.required, Validators.minLength(9), Validators.maxLength(9)],
                       //Validators.pattern('[0-9]{8}[A-Z]{1}$')  //NO FUNCIONA
-                    ], 
-    age:       ['', [ Validators.required]],
+                    ],
     telephone: ['', [ Validators.required, Validators.minLength(9), Validators.maxLength(9),
                       Validators.min(600000000),Validators.max(899999999)]],
-    address:   ['', [ Validators.required, Validators.minLength(3)]],
     email:     ['', [ Validators.required, Validators.email ]],
     password:  ['', [ Validators.required, Validators.minLength(4) ]],
-    password2:  ['', [ Validators.required, Validators.minLength(4) ]]
-  });
+    password2:  ['', [ Validators.required, Validators.minLength(4) ]],
+    condiciones: [ false, Validators.requiredTrue ]
+  },
+  {
+    validators: [
+      this.validatorService.camposIguales('password','password2'),
+    ]
+  }
+  );
 
 
   get emailErrorMsg(): string {
@@ -42,10 +49,19 @@ export class RegisterComponent implements OnInit {
   
   constructor(  private fb:FormBuilder,
                 private router:Router,
-                private authService:AuthService
+                private authService:AuthService,
+                private validatorService:ValidatorService
                 ) { }
 
   ngOnInit(): void {
+    this.miFormulario.reset({  
+      name: '',
+      lastName: '',
+      dni: '',
+      telephone: '',
+      email: '',
+      password: ''
+    })
   }
 
   campoNoValido( campo: string ) {
@@ -54,13 +70,17 @@ export class RegisterComponent implements OnInit {
   }
 
 
+ 
+
   submitFormulario() {
 
     console.log(this.miFormulario.value);
 
-    this.miFormulario.markAllAsTouched();
+   // this.miFormulario.markAllAsTouched();
 
-   /* this.authService.register(this.miFormulario.value)
+   const user = this.miFormulario.value
+
+   this.authService.register(user)
     .subscribe({
       next: (resp => {
         this.router.navigateByUrl('/'); //va al home
@@ -71,7 +91,7 @@ export class RegisterComponent implements OnInit {
         Swal.fire('Error', resp.error.message, 'error')
       }
    });
-    */
+    
 
   }
 }

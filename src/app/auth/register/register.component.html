@@ -14,10 +14,10 @@
                            formControlName="name"
                            placeholder="Pepe">
 
-                   <!-- <span class="form-text text-danger"
-                          *ngIf="campoNoValido('nombre')">
-                        Debe de ser en formato de nombre y apellido
-                    </span>-->
+                    <span class="form-text text-danger"
+                          *ngIf="campoNoValido('name')">
+                          Este campo es obligatorio
+                    </span>
                 </div>
             </div>
 
@@ -30,10 +30,10 @@
                            formControlName="lastName"
                            placeholder="García">
 
-                  <!--  <span class="form-text text-danger"
-                          *ngIf="campoNoValido('nombre')">
-                        Debe de ser en formato de nombre y apellido
-                    </span>-->
+                  <span class="form-text text-danger"
+                          *ngIf="campoNoValido('lastName')">
+                          Este campo es obligatorio
+                    </span>
                 </div>
             </div>
 
@@ -47,27 +47,10 @@
                            formControlName="dni"
                            placeholder="45876234T">
 
-                   <!--  <span class="form-text text-danger"
-                          *ngIf="campoNoValido('nombre')">
-                        Debe de ser en formato de nombre y apellido
-                    </span>-->
-                </div>
-            </div>
-
-
-            <!-- Edad -->
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Age</label>
-                <div class="col-sm-9">
-                    <input type="number"
-                           class="form-control"
-                           formControlName="age"
-                           placeholder="18">
-
-                   <!--  <span class="form-text text-danger"
-                          *ngIf="campoNoValido('nombre')">
-                        Debe de ser en formato de nombre y apellido
-                    </span>-->
+                    <span class="form-text text-danger"
+                          *ngIf="campoNoValido('dni')">
+                        Este campo es obligatorio
+                    </span>
                 </div>
             </div>
             
@@ -80,28 +63,13 @@
                            formControlName="telephone"
                            placeholder="674321456">
 
-                   <!--  <span class="form-text text-danger"
-                          *ngIf="campoNoValido('nombre')">
-                        Debe de ser en formato de nombre y apellido
-                    </span>-->
+                   <span class="form-text text-danger"
+                          *ngIf="campoNoValido('telephone')">
+                      Este campo es obligatorio
+                    </span>
                 </div>
             </div>
 
-            <!-- Address -->
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Address</label>
-                <div class="col-sm-9">
-                    <input type="text"
-                           class="form-control"
-                           formControlName="address"
-                           placeholder="C/Guadiana nº56 3C">
-
-                   <!--  <span class="form-text text-danger"
-                          *ngIf="campoNoValido('nombre')">
-                        Debe de ser en formato de nombre y apellido
-                    </span>-->
-                </div>
-            </div>
 
             <!-- Email -->
             <div class="row mb-3">
@@ -147,6 +115,22 @@
                            *ngIf="campoNoValido('password2')">
                          Las contraseñas deben de ser iguales
                     </span>
+                </div>
+            </div>
+
+            <!-- Switches -->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <div class="form-check">
+                        <input class="form-check-input"
+                            type="checkbox"
+                            formControlName="condiciones"
+                            id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        Términos y condiciones de uso
+                        </label>
+                    </div>
                 </div>
             </div>
 

@@ -1,6 +1,18 @@
 .carrusel{
     width: 60%;
-    padding-top: 5em;
+    padding-top: 2em;
     margin-left: auto;
     margin-right: auto;
+}
+
+.titulo{
+     margin-top: 1em;
+}
+
+p{
+
+    padding-right: 21%;
+    padding-left: 21%;
+    text-align: justify;
+
 }
