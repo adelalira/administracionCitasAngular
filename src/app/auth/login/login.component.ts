@@ -22,14 +22,17 @@ export class LoginComponent implements OnInit {
     }
   
     login(){
+      
       this.authService.login(this.email,this.password)
       .subscribe({
         next: (resp => {
-          localStorage.setItem('token',resp.access_token!)
-          this.router.navigateByUrl('/auth/register');
+          console.log(resp)
+          localStorage.setItem('token',JSON.stringify(resp.access_token))
+          this.router.navigateByUrl('/protected/usuario'); 
        }),
         error: resp => {
           console.log(resp);
+          console.log("FALLA AQUI 1");
           
           Swal.fire('Error', resp.error.message, 'error')
         }

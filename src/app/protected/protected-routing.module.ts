@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ServicioComponent } from './servicio.component';
 
-const routes: Routes = [{ path: '', component: ServicioComponent }];
+const routes: Routes = [{ path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule) }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ServicioRoutingModule { }
+export class ProtectedRoutingModule { }

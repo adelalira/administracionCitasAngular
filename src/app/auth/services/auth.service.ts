@@ -19,13 +19,18 @@ export class AuthService {
 
   login(email:string, password: string){
     const url = `${this.baseUrl}/auth/login`;
-    const body =  {email, password};
-    return this.http.post<AuthResponse>(url, body);
+    const body =  {
+      "email":email, 
+      "password":password
+                  };
+    const opcion = new HttpHeaders();
+    opcion.append('Access-Control-Allow-Origin','*');
+    return this.http.post<AuthResponse>(url, body,{headers:opcion});
 
   }
 
   validarToken():Observable<AuthResponse>{
-    const url = `${ this.baseUrl }/products`;
+    const url = `${ this.baseUrl }/user`; //CAMBIAR
 
     const headers = new HttpHeaders()
     
@@ -43,6 +48,8 @@ export class AuthService {
   register(user:Usuario){
     const url = `${this.baseUrl}/auth/register`;
     console.log(user);
-    return this.http.post<AuthResponse>(url, user);
+    const opcion = new HttpHeaders();
+    opcion.append('Access-Control-Allow-Origin','*');
+    return this.http.post<AuthResponse>(url, user,{headers:opcion});
   }
 }

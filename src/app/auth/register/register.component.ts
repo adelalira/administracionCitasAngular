@@ -84,6 +84,7 @@ export class RegisterComponent implements OnInit {
     .subscribe({
       next: (resp => {
         this.router.navigateByUrl('/'); //va al home
+        localStorage.setItem('token',resp.access_token!)
      }),
       error: resp => {
         console.log(resp);

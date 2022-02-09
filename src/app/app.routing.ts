@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes,RouterModule } from '@angular/router';
+import { ProtectedModule } from './protected/protected.module';
 
 
 const routes: Routes = [
@@ -8,12 +9,12 @@ const routes: Routes = [
         loadChildren:()=>import('./auth/auth.module').then(m=>m.AuthModule)
     },
     { 
-        path: 'usuarios', 
-        loadChildren: () => import('./usuarios/usuarios.module').then(m => m.UsuariosModule) 
-    },
-    { 
         path: 'servicios', 
         loadChildren: () => import('./servicios/servicios.module').then(m => m.ServiciosModule) 
+    },
+    { 
+        path: 'protected', 
+        loadChildren: () => import('./protected/protected.module').then(m => m.ProtectedModule) 
     },
     {
         path: '**',
