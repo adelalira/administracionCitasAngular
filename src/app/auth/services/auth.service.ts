@@ -30,17 +30,14 @@ export class AuthService {
   }
 
   validarToken():Observable<AuthResponse>{
-    const url = `${ this.baseUrl }/user`; //CAMBIAR
+    const url = `${ this.baseUrl }/checkToken`; //CAMBIAR
 
     const headers = new HttpHeaders()
     
       .set('Authorization', `Bearer ${localStorage.getItem('token')}` || '' );
 
+      console.log(localStorage.getItem('token'));
     return this.http.get<AuthResponse>( url, { headers } )
-    
-    console.log('validar toke');
-    
-    // return of(false)
         
   }
 

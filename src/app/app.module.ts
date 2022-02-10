@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app.routing';
 import { AuthModule } from './auth/auth.module';
 import { RouterModule } from '@angular/router';
 import { ServiciosModule } from './servicios/servicios.module';
+import { ValidarTokenGuard } from './guards/validar-token.guard';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { ServiciosModule } from './servicios/servicios.module';
     AuthModule,
     ServiciosModule
   ],
-  providers: [],
+  providers: [ValidarTokenGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,12 @@
 import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from "@angular/router";
-import { catchError, map, Observable, of } from "rxjs";
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { catchError, map, Observable, of, tap } from "rxjs";
 import Swal from "sweetalert2";
 import { AuthService } from "../auth/services/auth.service";
+
+
+
+
 
 @Injectable({
     providedIn: 'root'
@@ -23,6 +27,7 @@ export class ValidarTokenGuard implements CanActivate {
               return true
             }),
             catchError( err => {
+                console.log("ERROR AQUI")
                 console.log(err);
                 Swal.fire('Error',err.error.message,'error');
                 
@@ -30,9 +35,17 @@ export class ValidarTokenGuard implements CanActivate {
                 return of(false)
             })
           )
-          this.router.navigateByUrl
-          return false
-
+          
+        // .subscribe({
+        //     next: (resp) => {
+        //         access=true;},
+        //     error: (resp) => {
+        //         access=false;
+                
+        //         //this.router.navigateByUrl('/auth/login')
+        //            }
+        //         });
+        //         return access;
     }
 
 }

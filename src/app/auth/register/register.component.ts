@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
 
   miFormulario: FormGroup = this.fb.group({
     name:      ['', [ Validators.required, Validators.minLength(3)]],
-    lastName:  ['', [ Validators.required, Validators.minLength(3)]],
+    lastname:  ['', [ Validators.required, Validators.minLength(3)]],
     dni:       ['', [ Validators.required, Validators.minLength(9), Validators.maxLength(9)],
                       //Validators.pattern('[0-9]{8}[A-Z]{1}$')  //NO FUNCIONA
                     ],
@@ -56,7 +56,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.miFormulario.reset({  
       name: '',
-      lastName: '',
+      lastname: '',
       dni: '',
       telephone: '',
       email: '',

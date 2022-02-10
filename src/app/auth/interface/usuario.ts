@@ -1,6 +1,6 @@
 export interface Usuario {
     name:string;
-    lastName:string;
+    lastname:string;
     dni :string;
     telephone:number;
     email: string;

@@ -48,7 +48,7 @@
                     <button type="submit"
                             [disabled]="miFormulario.invalid"
                             class="btn btn-primary"
-                            routerLink="/protected/usuario"> <!--CAMBIAR EL ENLACE CUANDO TENGAMOS LA RUTA DESEADA-->
+                            (click)="login()"> 
                         Enter
                     </button>
                 </div>
