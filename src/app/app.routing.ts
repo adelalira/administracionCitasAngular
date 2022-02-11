@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes,RouterModule } from '@angular/router';
 import { ValidarTokenGuard } from './guards/validar-token.guard';
 import { ProtectedModule } from './protected/protected.module';
+import { ServiciosModule } from './servicios/servicios.module';
 
 
 const routes: Routes = [
@@ -10,13 +11,10 @@ const routes: Routes = [
         loadChildren:()=>import('./auth/auth.module').then(m=>m.AuthModule)
     },
     { 
-        path: 'servicios', 
-        loadChildren: () => import('./servicios/servicios.module').then(m => m.ServiciosModule) 
-    },
-    { 
         path: 'protected', canActivate:[ValidarTokenGuard] ,
         loadChildren: () => import('./protected/protected.module').then(m => m.ProtectedModule) 
     },
+    { path: 'servicios', loadChildren: () => import('./servicios/servicios.module').then(m => m.ServiciosModule) },
     {
         path: '**',
         redirectTo: 'home' 
@@ -24,7 +22,7 @@ const routes: Routes = [
   ];
   
   @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes), ServiciosModule],
     exports: [RouterModule]
   })
 

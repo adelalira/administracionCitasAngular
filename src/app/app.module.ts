@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { RouterModule } from '@angular/router';
 import { ServiciosModule } from './servicios/servicios.module';
 import { ValidarTokenGuard } from './guards/validar-token.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ValidarTokenGuard } from './guards/validar-token.guard';
     AppRoutingModule,
     RouterModule,
     AuthModule,
+    BrowserAnimationsModule,
     ServiciosModule
   ],
   providers: [ValidarTokenGuard],
