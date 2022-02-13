@@ -1,5 +1,5 @@
 <div class="row text-center">
-    <div class="col-md-4 offset-md-4 mt-5">
+    <div class="col-md-6 offset-md-1 mt-5 bordeForm">
         <form (ngSubmit)="login()"
               #miFormulario="ngForm"
               autocomplete="off">
@@ -47,30 +47,44 @@
                 <div class="col">
                     <button type="submit"
                             [disabled]="miFormulario.invalid"
-                            class="btn btn-primary"
+                            class="custom-btn btn"
                             (click)="login()"> 
                         Enter
                     </button>
                 </div>
             </div>
-        </form>
+
+            <div class="row ">
+                <div class="col mt-5">
+                    <span>You do not have an account?</span>
+                    
+            
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col">
+                    <button class="col-md-4 offset-md-1  mt-3 btn m-2 register" 
+                    routerLink="/auth/register" >Register </button>   
+                    
+            
+                </div>
+            </div>
+    </form>
   
-  
+ 
+        </div>
+
+        <div class="col-md-4 offset-md-auto">
+
+            <img src="../../../assets/img/nailsLogin.jpg" class="nailsLogin  " >
+        </div>
         <!--BOTON DE REGISTRAR-->
-        <div class="row">
-          <div class="col">
-              <span  class="mr-3">You do not have an account?</span>
-              <button class="btn btn-primary m-2" 
-                    routerLink="/auth/register" >Register </button>
-          </div>
-      </div>
-  
-  
-    </div>
-  </div>
-  
-  
-  <!--
+
+
+       
+
+
+        <!--
   <div class="row">
     <div class="col">
         <span>Valid</span>
