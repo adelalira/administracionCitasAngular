@@ -1,6 +1,8 @@
 import { Component, OnDestroy,  OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { ServiciosService } from './services/servicios.service';
+import { Servicio } from './interface/servicio';
 
 @Component({
   selector: 'app-servicios',
@@ -15,10 +17,11 @@ export class ServiciosComponent implements OnDestroy, OnInit {
   // thus we ensure the data is fetched before rendering
   dtTrigger= new Subject<any>();
 
-  data:any;
+  
 
-  constructor(private http: HttpClient) { }
+  constructor(private serviciosService:ServiciosService) { }
 
+  data!: Servicio[];
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
@@ -28,16 +31,33 @@ export class ServiciosComponent implements OnDestroy, OnInit {
 
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 2
+      pageLength: 5
     };
-    this.http.get('http://dummy.restapiexample.com/api/v1/employees')
-    .subscribe((resp:any)=>{
-      this.data=resp.data;
-      this.dtTrigger.next(null);
-    });
 
-
+    this.carga();
    
   }
 
+
+  carga(){
+    this.serviciosService.buscaServiciosOfrecidos().subscribe({
+      next: (resp:any) => {
+        console.log("ok");
+        console.log(resp); 
+        this.data=resp;
+        console.log(this.data);
+       
+        this.dtTrigger.next(null);
+      },
+      error: (e) => {
+        console.log(e);
+        console.log("NO ok");
+      }
+    }
+  )}
+
+
 }
+
+  
+

@@ -15,8 +15,6 @@ const routes: Routes = [
         loadChildren: () => import('./protected/protected.module').then(m => m.ProtectedModule) 
     },
     { path: 'servicios', loadChildren: () => import('./servicios/servicios.module').then(m => m.ServiciosModule) },
-    { path: 'servicios', loadChildren: () => import('./servicios/servicios.module').then(m => m.ServiciosModule) },
-    { path: 'servicios', loadChildren: () => import('./servicios/servicios.module').then(m => m.ServiciosModule) },
     {
         path: '**',
         redirectTo: 'home' 
