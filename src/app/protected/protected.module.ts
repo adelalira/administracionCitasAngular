@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ProtectedRoutingModule } from './protected-routing.module';
 import { UsuarioModule } from '../protected/usuario/usuario.module';
 import { ValidarTokenGuard } from '../guards/validar-token.guard';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ValidarTokenGuard } from '../guards/validar-token.guard';
   imports: [
     CommonModule,
     ProtectedRoutingModule,
-    UsuarioModule
+    UsuarioModule,
+    HttpClientModule
   ],
   providers: [
     ValidarTokenGuard

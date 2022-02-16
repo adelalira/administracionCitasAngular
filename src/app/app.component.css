@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,500&display=swap');
+
+*{
+    font-family: 'Playfair Display', serif !important;
+}
+
+
 .logo{
     width:90px  ;
     padding: 1em;
@@ -11,11 +18,12 @@
     padding-top: 1.5em;
     padding-right: 1em;
     font-size: 1.7em;
+    width: 50px;
 
 }
 
-.verdeOscuro {
-    background-color: rgba(114, 183, 161, 255);
+.colorRosa {
+    background-color: #f6c6c3;
 }
 
 .nombre{
@@ -23,4 +31,21 @@
     padding-left: 0 !important;
     margin-top: 0.8em;
     margin-right: 8em;
+}
+
+footer{
+    text-decoration: none;
+    margin-top: 5em;
+}
+
+.decoracionFooter{
+    text-decoration: none;
+    color:white;
+    font-size: 15px;
+}
+
+.navbar{
+    font-weight: bold;
+    font-size: 20px;
+    padding-left: 0.5em;
 }

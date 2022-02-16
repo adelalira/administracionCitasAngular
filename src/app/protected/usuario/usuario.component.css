@@ -33,7 +33,7 @@ html, body {height: 100%;}
   letter-spacing: 2.5px;
   font-weight: 500;
   color: #000;
-  background-color:rgba(114, 183, 161, 255);
+  background-color:#f6c6c3;
   border: none;
   border-radius: 45px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -43,9 +43,81 @@ html, body {height: 100%;}
   }
 
 .btn:hover {
-  background-color: #ff5722;
+  background-color: #be8f8c;;
       box-shadow: 0px 15px 20px rgba(119, 29, 0, 0.73);
   color: #fff;
   transform: translateY(-7px);
 }
 
+/*CARTAS*/
+
+.card-wrapper {
+  background-color: #343741;
+  height: 500px;
+  width: 320px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 0 0;
+  transform: scale(0.95);
+  transition: transform 0.5s, background-color 0.5s, box-shadow 0.5s;
+  margin:auto !important;
+}
+
+.card-wrapper:hover {
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
+}
+
+
+.card-header {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0
+}
+
+.card-header img {
+  max-width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+}
+
+.card-wrapper:hover .card-header img {
+  transform: scale(1.2) rotate(3deg);
+}
+
+.card-footer {
+  height: 15%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  transition: color 500ms;
+  color: white;
+  background-color: #1d1e24;
+  opacity: 0.7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-footer-title span {
+  font-family: Oswald;
+  font-size: 24px;
+  position: absolute;
+  left: 25%;
+  bottom: 25px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 1px white;
+}
+
+.centrado{
+  margin: auto !important;
+  justify-content: center  !important;
+  align-items: center  !important;
+}

@@ -12,6 +12,10 @@ export class UsuarioComponent implements OnInit {
   constructor(private authService:AuthService,
     private router:Router) { }
 
+    imgVisible:boolean=true;
+    dataVisible:boolean=false;
+    dateVisible:boolean=false;
+
   ngOnInit(): void {
   }
 

@@ -42,7 +42,6 @@ export class RegisterComponent implements OnInit {
   }
   );
 
-
   get emailErrorMsg(): string {
     
     const errors = this.miFormulario.get('email')?.errors!;
@@ -55,7 +54,7 @@ export class RegisterComponent implements OnInit {
     }
 
     return '';
-  }
+  } 
   
 
 
