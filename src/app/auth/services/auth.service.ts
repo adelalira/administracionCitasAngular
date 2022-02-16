@@ -49,4 +49,16 @@ export class AuthService {
     opcion.append('Access-Control-Allow-Origin','*');
     return this.http.post<AuthResponse>(url, user,{headers:opcion});
   }
+
+
+
+
+
+  saveId(){
+    const url = `${this.baseUrl}/user`;
+    let token = JSON.parse(<string>localStorage.getItem('token'));
+    const headers = new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`);
+    return this.http.get<AuthResponse>(url, {headers});
+  }
 }
