@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl('/protected/usuario'); 
        }),
         error: resp => {
-          //console.log(resp);
+          console.log(resp.message);
           
           Swal.fire('Error', resp.error.message, 'error');
         }

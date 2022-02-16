@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
                     ],
     telephone: ['', [ Validators.required, Validators.minLength(9), Validators.maxLength(9),
                       Validators.min(600000000),Validators.max(899999999)]],
-    email:     ['', [ Validators.required, Validators.email ],[this.emailValidator]],
+    email:     ['', [ Validators.required,  Validators.pattern(this.validatorService.emailPattern) ],[this.emailValidator]],
     password:  ['', [ Validators.required, Validators.minLength(4) ]],
     password2:  ['', [ Validators.required, Validators.minLength(4) ]],
     condiciones: [ false, Validators.requiredTrue ]
@@ -88,8 +88,17 @@ export class RegisterComponent implements OnInit {
    this.authService.register(user)
     .subscribe({
       next: (resp => {
+        //reseteamos el formulario
+        this.miFormulario.reset({
+          fullName: '',
+          email: '',
+          username: '',
+          password: '',
+          condiciones: false
+        })
+
         this.router.navigateByUrl('/'); //va al home
-        localStorage.setItem('token',resp.access_token!)
+        //localStorage.setItem('token',resp.access_token!)
      }),
       error: resp => {
         console.log(resp);
