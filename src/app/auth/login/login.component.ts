@@ -32,8 +32,11 @@ export class LoginComponent implements OnInit {
        }),
         error: resp => {
           console.log(resp.message);
-          
-          Swal.fire('Error', resp.error.mensaje, 'error');
+          Swal.fire({
+            title:'Error',
+            icon: 'error',
+            text:resp.error.mensaje
+          });
         }
      });
   }
