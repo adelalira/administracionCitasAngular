@@ -15,7 +15,7 @@ export class ValidarTokenGuard implements CanActivate {
     constructor( private authService: AuthService,
         private router: Router ){}
 
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean>| any {
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
         let access=false;
         console.log('Can activate');
         
@@ -29,23 +29,21 @@ export class ValidarTokenGuard implements CanActivate {
             catchError( err => {
                 console.log("ERROR AQUI")
                 console.log(err);
-                Swal.fire('Error',err.error.message,'error');
+                Swal.fire(  //devuelve el mensaje de la fakeAPi verificarToken
+                    {
+                    title: 'No acces',
+                    text: 'Login to access this page',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                  }
+                  )
+                  console.log("aqui estoy");
                 
                 this.router.navigateByUrl('/auth/login');
                 return of(false)
             })
           )
           
-        // .subscribe({
-        //     next: (resp) => {
-        //         access=true;},
-        //     error: (resp) => {
-        //         access=false;
-                
-        //         //this.router.navigateByUrl('/auth/login')
-        //            }
-        //         });
-        //         return access;
     }
 
 }
