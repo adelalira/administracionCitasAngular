@@ -37,7 +37,7 @@ export class ValidarTokenGuard implements CanActivate {
                     confirmButtonText: 'Ok'
                   }
                   )
-                  console.log("aqui estoy   ")
+                  console.log("aqui estoy");
                 
                 this.router.navigateByUrl('/auth/login');
                 return of(false)

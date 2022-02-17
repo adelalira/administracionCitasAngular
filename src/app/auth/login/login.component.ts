@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         error: resp => {
           console.log(resp.message);
           
-          Swal.fire('Error', resp.error.message, 'error');
+          Swal.fire('Error', resp.error.mensaje, 'error');
         }
      });
   }
