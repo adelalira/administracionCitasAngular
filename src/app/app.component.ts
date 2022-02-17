@@ -39,4 +39,10 @@ export class AppComponent {
   ngOnDestroy() {
     this.subscriber?.unsubscribe();
   }
+
+  deletetoken(){
+    localStorage.clear();
+  }
+
+
 }

@@ -31,7 +31,7 @@ export class ValidarTokenGuard implements CanActivate {
                 console.log(err);
                 Swal.fire(  //devuelve el mensaje de la fakeAPi verificarToken
                     {
-                    title: 'No acces',
+                    title: 'No access',
                     text: 'Login to access this page',
                     icon: 'error',
                     confirmButtonText: 'Ok'
