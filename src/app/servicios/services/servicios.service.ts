@@ -16,7 +16,7 @@ export class ServiciosService {
 
   buscaServiciosOfrecidos():Observable<Servicio>{
 
-    const url = `${ this.baseUrl }/serviciosFindAll`; 
+    const url = `${ this.baseUrl }/servicios`; 
 
     const opcion = new HttpHeaders();
     opcion.append('Access-Control-Allow-Origin','*');

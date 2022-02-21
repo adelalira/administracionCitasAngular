@@ -19,11 +19,11 @@ export class EmailValidatorService {
 
   validate(control: AbstractControl): Observable<ValidationErrors | null> {
     const email = control.value;
-    console.log(email);
+    //console.log(email);
     
     return this.compruebaEmail(email).pipe(
       map (resp => {
-        console.log(resp);
+      //  console.log(resp);
         if(resp.email != null){
            return {emailTomado: true};
         }else{
@@ -39,7 +39,7 @@ export class EmailValidatorService {
 
   //Petición get para comprobar el email
   compruebaEmail(email:string){
-    const url = `${this.baseUrl}/auth/user/${email}`;
+    const url = `${this.baseUrl}/auth/user/email/${email}`;
     const opcion = new HttpHeaders();
     opcion.append('Access-Control-Allow-Origin','*');
     return this.http.get<Usuario>(url,{headers:opcion});

@@ -1,13 +1,13 @@
-<div class="row text-center">
-    <div class="col-md-4 offset-md-4 mt-5">
+<div class="row text-center mt-5">
+    <div class="col-md-12 col-lg-12 col-sm-12 col-12">
 
         <form autocomplete="off" 
               [formGroup]="miFormulario"
               (ngSubmit)="submitFormulario()">
 
             <!-- Name -->
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Name</label>
+            <div class="row mb-3 mt-md-3 mx-3">
+                <label class="col-sm-3 col-4 col-md-2 col-form-label">Name</label>
                 <div class="col-sm-9">
                     <input type="text"
                            class="form-control"
@@ -22,8 +22,8 @@
             </div>
 
             <!-- Last Name -->
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Last Name</label>
+            <div class="row mb-3 mt-md-3 mx-3">
+                <label class="col-sm-3 col-4 col-md-2 col-form-label">Last Name</label>
                 <div class="col-sm-9">
                     <input type="text"
                            class="form-control"
@@ -39,8 +39,8 @@
 
 
             <!-- DNI -->
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">DNI</label>
+            <div class="row mb-3 mt-md-3 mx-3">
+                <label class="col-sm-3 col-4 col-md-2 col-form-label">DNI</label>
                 <div class="col-sm-9">
                     <input type="text"
                            class="form-control"
@@ -55,8 +55,8 @@
             </div>
             
             <!-- Telephone -->
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Telephone</label>
+            <div class="row mb-3 mt-md-3 mx-3">
+                <label class="col-sm-3 col-4 col-md-2 col-form-label">Telephone</label>
                 <div class="col-sm-9">
                     <input type="number"
                            class="form-control"
@@ -72,8 +72,8 @@
 
 
             <!-- Email -->
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Email</label>
+            <div class="row mb-3 mt-md-3 mx-3">
+                <label class="col-sm-3 col-4 col-md-2 col-form-label">Email</label>
                 <div class="col-sm-9">
                     <input type="email"
                            class="form-control"
@@ -87,8 +87,8 @@
             </div>
 
             <!-- Password -->
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Password</label>
+            <div class="row mb-3 mt-md-3 mx-3">
+                <label class="col-sm-3 col-4 col-md-2 col-form-label">Password</label>
                 <div class="col-sm-9">
                     <input type="password"
                            class="form-control"
@@ -103,8 +103,8 @@
             </div>
 
             <!-- Password2 -->
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Confirm Password</label>
+            <div class="row mb-3 mt-md-3 mx-3">
+                <label class="col-sm-3 col-4 col-md-2 col-form-label">Confirm Password</label>
                 <div class="col-sm-9">
                     <input type="password"
                            class="form-control"
@@ -119,8 +119,8 @@
             </div>
 
             <!-- Switches -->
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label"></label>
+            <div class="row mb-3 mt-md-3 mx-3">
+                <label class="col-sm-3 col-4 col-md-2 col-form-label"></label>
                 <div class="col-sm-9">
                     <div class="form-check">
                         <input class="form-check-input"
@@ -147,24 +147,5 @@
 
 
         </form>
-    </div>
-</div>
-
-
-<div class="row">
-    <div class="col">
-
-        <span>Valid</span>
-        <pre>{{ miFormulario.valid }}</pre>
-
-        <span>Pristine</span>
-        <pre>{{ miFormulario.pristine }}</pre>
-
-        <span>Touched</span>
-        <pre>{{ miFormulario.touched }}</pre>
-
-        <span>Value</span>
-        <pre>{{ miFormulario.value | json }}</pre>
-
     </div>
 </div>
