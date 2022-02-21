@@ -36,7 +36,6 @@ export class AuthService {
     
       .set('Authorization', `Bearer ${JSON.parse(<string>localStorage.getItem('token'))}` || '' );
 
-      console.log(localStorage.getItem('token'));
     return this.http.get<AuthResponse>( url, { headers } )
         
   }
@@ -52,13 +51,16 @@ export class AuthService {
 
 
 
-
-
-  saveId(){
-    const url = `${this.baseUrl}/user`;
+  loginGetIdUser(){
+    const url = `${this.baseUrl}/auth/user`;
     let token = JSON.parse(<string>localStorage.getItem('token'));
     const headers = new HttpHeaders()
       .set('Authorization', `Bearer ${token}`);
     return this.http.get<AuthResponse>(url, {headers});
   }
+
+
+
+
+
 }

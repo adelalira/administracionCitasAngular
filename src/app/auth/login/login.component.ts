@@ -26,9 +26,10 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.email,this.password)
       .subscribe({
         next: (resp => {
-          console.log(resp)
+         // console.log(resp)
           localStorage.setItem('token',JSON.stringify(resp.access_token))
-          this.router.navigateByUrl('/protected/usuario'); 
+          this.getIdUser();
+          //this.router.navigateByUrl('/protected/usuario'); 
        }),
         error: resp => {
           console.log(resp.message);
@@ -40,4 +41,14 @@ export class LoginComponent implements OnInit {
         }
      });
   }
+
+  getIdUser() {
+    this.authService.loginGetIdUser().subscribe((resp) => {
+      console.log(resp);
+      localStorage.setItem('userId', JSON.stringify(resp));
+      console.log(`/protected/usuario/${resp}`);
+      this.router.navigateByUrl(`/protected/usuario/${resp}`);
+    });
+  }
+
 }

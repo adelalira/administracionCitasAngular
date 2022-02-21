@@ -42,10 +42,10 @@ export class ServiciosComponent implements OnDestroy, OnInit {
   carga(){
     this.serviciosService.buscaServiciosOfrecidos().subscribe({
       next: (resp:any) => {
-        console.log("ok");
-        console.log(resp); 
+     //   console.log("ok");
+     //   console.log(resp); 
         this.data=resp;
-        console.log(this.data);
+     //   console.log(this.data);
        
         this.dtTrigger.next(null);
       },

@@ -17,19 +17,18 @@ export class ValidarTokenGuard implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
         let access=false;
-        console.log('Can activate');
+        
         
         return this.authService.validarToken()
         .pipe(
             map( resp => {
-              console.log(resp);
               
               return true
             }),
             catchError( err => {
                 console.log("ERROR AQUI")
                 console.log(err);
-                Swal.fire(  //devuelve el mensaje de la fakeAPi verificarToken
+                Swal.fire(  
                     {
                     title: 'No access',
                     text: 'Login to access this page',
@@ -37,7 +36,6 @@ export class ValidarTokenGuard implements CanActivate {
                     confirmButtonText: 'Ok'
                   }
                   )
-                  console.log("aqui estoy");
                 
                 this.router.navigateByUrl('/auth/login');
                 return of(false)
