@@ -32,4 +32,17 @@ export class UsuarioComponent implements OnInit {
     }
     )
   }
+
+  askDate(){
+    this.imgVisible=false;
+    this.dateVisible=true;
+    this.dataVisible=false;
+  }
+
+  datas(){
+    this.imgVisible=false;
+    this.dataVisible=true;
+    this.dateVisible=false;
+    
+  }
 }

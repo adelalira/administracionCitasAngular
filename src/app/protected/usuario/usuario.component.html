@@ -2,15 +2,21 @@
   <div class="col-lg-12 col-xs-6">
       <h1 class="text-center titulo"> WELCOME TO USER ZONE!</h1>
       <div class="frame text-center">
-          <button class="custom-btn btn" routerLink="/protected/usuario/datos"><span>Check my data</span></button>
-          <button class="custom-btn btn"><span>Ask for a date</span></button>
+          <button class="custom-btn btn"  (click)="datas()"><span>Check my data</span></button>
+          <button class="custom-btn btn"  (click)="askDate()"><span>Ask for a date</span></button>
         </div>
   </div>
 </div>
 
+<div *ngIf="dateVisible">
+    <app-cita></app-cita>
+</div>
 
+<div *ngIf="dataVisible">
+    <app-datos></app-datos>
+</div>
 
-<div class="row">
+<div class="row" *ngIf="imgVisible">
 
   <div class="card__container m-lg-auto m-md-auto">
       <img src="../../../assets/img/fotoServicios2.jpg" alt="" class="card__photo">

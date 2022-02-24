@@ -1,15 +1,21 @@
 <div class="row mt-3">
-    <div class="col-lg-12 col-xs-6">
-        <h1 class="text-center">YOUR DATA!</h1>
-        <div class="col-12 col-sm-6 text-center">
-            
+    <h1 class="text-center">YOUR DATA!</h1>        
+        <div class="col-md-6 col-12 text-center">
                 <h2><strong>Name: </strong><span class="label label-default">{{usuario.name}}</span></h2>
                 <h2><strong>Last name: </strong><span class="label label-default">{{usuario.lastname}}</span></h2>
                 <h2><strong>DNI: </strong><span class="label label-default">{{usuario.dni}}</span></h2>
                 <h2><strong>Telephone: </strong><span class="label label-default">{{usuario.telephone}}</span></h2>
                 <h2><strong>Email: </strong><span class="label label-default">{{usuario.email}}</span></h2>
-           
         </div>
+        <div class="col-md-6 col-12 text-center" >
+            <h2><strong>Cita: </strong></h2>
+                <div *ngFor="let i of citas" class="mt-3">
+                    <span class="label label-default mx-3">Dia: {{i.dia | date: 'dd-MM-yyyy'}}</span>
+                    <span class="label label-default">Hora: {{i.dia | date: 'HH:MM'}}</span>
+                    <button class="custom-btn btn" (click)="cancelDate(i.id)">Cancelar</button>
+
+                </div> 
+
     </div>
   </div>
   
