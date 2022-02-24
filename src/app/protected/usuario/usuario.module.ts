@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { UsuarioRoutingModule } from './usuario-routing.module';
 import { UsuarioComponent } from './usuario.component';
+import { FormsModule } from '@angular/forms';
+import { CitaModule } from './cita/cita.module';
+import { DatosModule } from './datos/datos.module';
 
 
 @NgModule({
@@ -11,7 +14,9 @@ import { UsuarioComponent } from './usuario.component';
   ],
   imports: [
     CommonModule,
-    UsuarioRoutingModule
+    UsuarioRoutingModule,
+    CitaModule,
+    DatosModule
   ]
 })
 export class UsuarioModule { }

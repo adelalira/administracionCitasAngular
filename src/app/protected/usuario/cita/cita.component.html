@@ -1,0 +1,75 @@
+<div class="row text-center" >
+    <div class="col-md-6 offset-md-1 mt-5 bordeForm">
+        <form (ngSubmit)="pedirCita()"
+              #miFormulario="ngForm"
+              autocomplete="off">
+            
+            <!-- FECHA Y HORA CITA -->
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Time for your appointment</label>
+                <div class="col-sm-9">
+                    
+                    <input type="datetime-local"
+                           class="form-control"
+                           [(ngModel)]="dia"
+                           name="dia"
+                           placeholder="dia">
+  
+                    <!--<span class="form-text text-danger"
+                        *ngIf="nombreValido()">
+                        Debe de ser de 3 letras
+                    </span>-->
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Treatments</label>
+                <div class="col-sm-9">
+                    <select >
+                        <option>Manicura</option>
+                        <option>Pedicura</option>
+                        <option>Depilación con cera</option>
+                        <option>Depilación laser</option>
+                        <option>Depilación de cejas con pinza</option>
+                        <option>Depilación de cejas con hilo</option>
+                        <option>Pestañas pelo a pelo</option>
+                        <option>Microblading de cejas</option>
+                        <option>Microblading de pestañas</option>
+                        <option>Rejuvenecimiento de parpados</option>
+                        <option>Lifting de pestañas</option>
+                        <option>Tinte de cejas</option>
+                        <option>Rizado de pestañas</option>
+                        <option>Diseño de cejas</option>
+                        <option>Tinte de pestañas</option>
+                        
+
+                    </select>
+
+                    <!--<span class="form-text text-danger"
+                        *ngIf="nombreValido()">
+                        Debe de ser de 3 letras
+                    </span>-->
+                </div>
+            </div>
+  
+
+  
+          <!--BOTON PARA LOGEAR-->
+            <div class="row ">
+                <div class="col">
+                    <button type="submit"
+                            [disabled]="miFormulario.invalid"
+                            class="custom-btn btn"> 
+                        Enter
+                    </button>
+                </div>
+            </div>
+
+        
+    </form>
+  
+ 
+
+
+
+       

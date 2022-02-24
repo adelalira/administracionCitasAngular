@@ -12,6 +12,9 @@ import { DatosComponent } from './datos.component';
   imports: [
     CommonModule,
     DatosRoutingModule
+  ],
+  exports: [
+    DatosComponent
   ]
 })
 export class DatosModule { }
