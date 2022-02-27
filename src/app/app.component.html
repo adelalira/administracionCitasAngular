@@ -1,27 +1,27 @@
- <div class="colorRosa">
-    <!-- HEADER -->
-    <div class="row"> <!-- start row-->
-      <header class="colorVerde text-center">
-        <img src="../../../assets/img/logo.png" class="logo" routerLink="auth/home" routerLinkActive="active">
-        <img src="../../../assets/img/nombre.png" class="nombre" routerLink="auth/home" routerLinkActive="active" >
-        <img src="../../../assets/icon/login.png" class="loginIcon" routerLink="auth/login" routerLinkActive="active">
-        <img src="../../../assets/icon/logout.png" class="loginIcon2" routerLink="auth/home" routerLinkActive="active" (click)="deletetoken()">
-        <i class="fa-solid fa-user-large" routerLink="auth/login" routerLinkActive="active"></i>
-      </header>
-    </div>  <!-- end row-->
-    
+<div class="colorRosa">
+  <!-- HEADER -->
+  <div class="row"> <!-- start row-->
+    <header class="colorVerde text-center">
+      <img src="../../../assets/img/logo.png" class="logo" routerLink="auth/home" routerLinkActive="active">
+      <img src="../../../assets/img/nombre.png" class="nombre" routerLink="auth/home" routerLinkActive="active" >
+      <img src="../../../assets/icon/login.png" class="loginIcon" routerLink="auth/login" routerLinkActive="active">
+      <img src="../../../assets/icon/logout.png" class="loginIcon2" routerLink="auth/home" routerLinkActive="active" (click)="deletetoken()">
+      <i class="fa-solid fa-user-large" routerLink="auth/login" routerLinkActive="active"></i>
+    </header>
+  </div>  <!-- end row-->
+  
 
-  <nav class="navbar navbar-expand navbar-dark">
-    <div class="navbar-nav">
-      <ul class="nav">
-        <li class="nav-item" routerLink="" routerLinkActive="active"><a class="nav-link">Home</a></li> <!-- [routerLinkActiveOptions]="{exact:true}"-->
-        <li class="nav-item" routerLink="auth/login" routerLinkActive="active"><a class="nav-link" >Login</a></li>
-        <li class="nav-item" routerLink="servicios" routerLinkActive="active"><a class="nav-link" >Treatments</a></li>
-        <li class="nav-item" routerLink="protected/usuario" routerLinkActive="active"><a class="nav-link" >User</a></li>
-      </ul>
-        <!-- <a class="nav-item nav-link" (click)="logout()">Logout</a>-->
-    </div>
-  </nav>
+<nav class="navbar navbar-expand navbar-dark">
+  <div class="navbar-nav">
+    <ul class="nav">
+      <li class="nav-item" routerLink="auth/home" routerLinkActive="active"><a class="nav-link">Home</a></li> <!-- [routerLinkActiveOptions]="{exact:true}"-->
+      <li class="nav-item" routerLink="auth/login" routerLinkActive="active"><a class="nav-link" >Login</a></li>
+      <li class="nav-item" routerLink="servicios" routerLinkActive="active"><a class="nav-link" >Treatments</a></li>
+      <li class="nav-item" routerLink="protected/usuario" routerLinkActive="active"><a class="nav-link" >User</a></li>
+    </ul>
+      <!-- <a class="nav-item nav-link" (click)="logout()">Logout</a>-->
+  </div>
+</nav>
 </div>  
   <div>
     <router-outlet></router-outlet>

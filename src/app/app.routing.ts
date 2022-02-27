@@ -17,7 +17,7 @@ const routes: Routes = [
     { path: 'servicios', loadChildren: () => import('./servicios/servicios.module').then(m => m.ServiciosModule) },
     {
         path: '**',
-        redirectTo: 'home' 
+        redirectTo: 'homeComponent' 
     }
   ];
   

@@ -6,6 +6,7 @@ import { UsuarioComponent } from './usuario.component';
 import { FormsModule } from '@angular/forms';
 import { CitaModule } from './cita/cita.module';
 import { DatosModule } from './datos/datos.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { DatosModule } from './datos/datos.module';
     CommonModule,
     UsuarioRoutingModule,
     CitaModule,
-    DatosModule
+    DatosModule,
+    SharedModule
   ]
 })
 export class UsuarioModule { }
