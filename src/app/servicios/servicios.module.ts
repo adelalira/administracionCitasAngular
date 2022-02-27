@@ -6,6 +6,7 @@ import { ServiciosComponent } from './servicios.component';
 
 import { DataTablesModule } from "angular-datatables";
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     ServiciosRoutingModule,
     DataTablesModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ]
 })
 export class ServiciosModule { }

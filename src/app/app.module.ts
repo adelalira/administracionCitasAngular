@@ -8,6 +8,8 @@ import { RouterModule } from '@angular/router';
 import { ServiciosModule } from './servicios/servicios.module';
 import { ValidarTokenGuard } from './guards/validar-token.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from './shared/shared.module';
+import { NavbarModule } from './shared/navbar/navbar.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule,
     AuthModule,
     BrowserAnimationsModule,
-    ServiciosModule
+    ServiciosModule,
+    SharedModule,
+    NavbarModule
   ],
   providers: [ValidarTokenGuard],
   bootstrap: [AppComponent]
