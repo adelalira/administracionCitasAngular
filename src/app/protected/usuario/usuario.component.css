@@ -124,3 +124,7 @@ body{
 .card__description:hover{
     transform:scale(1.07)
   }
+
+.paddingCards{
+  padding-top: 3em !important;
+}

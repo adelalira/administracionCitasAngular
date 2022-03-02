@@ -87,4 +87,27 @@ export class DatosComponent implements OnInit {
   }
 
 
+  deleteAccount(){
+    this.servicioDeUsuario.deleteAccount()
+    .subscribe({
+      next: (resp => {
+        console.log(resp)
+        this.cargarDatosUsuario();
+       
+     }),
+      error: resp => {
+        console.log(resp.message);
+
+          Swal.fire({
+            title:'Error',
+            icon: 'error',
+            text:resp.error.mensaje
+          });
+        
+       
+      }
+   });
+  }
+
+
 }
