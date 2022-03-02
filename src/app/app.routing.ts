@@ -7,6 +7,10 @@ import { ServiciosModule } from './servicios/servicios.module';
 
 const routes: Routes = [
     {
+        path: '',
+        loadChildren:()=>import('./auth/home/home.module').then(m=>m.HomeModule)
+    },
+    {
         path: 'auth',
         loadChildren:()=>import('./auth/auth.module').then(m=>m.AuthModule)
     },
@@ -17,7 +21,7 @@ const routes: Routes = [
     { path: 'servicios', loadChildren: () => import('./servicios/servicios.module').then(m => m.ServiciosModule) },
     {
         path: '**',
-        redirectTo: 'homeComponent' 
+        redirectTo: '' 
     }
   ];
   

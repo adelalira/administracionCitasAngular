@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { CitaComponent } from './cita/cita.component';
 
 @Component({
   selector: 'app-usuario',
-  templateUrl: './usuario.component.html',
+  templateUrl: './usuario.component.html', //'./usuario.component.html'
   styleUrls: ['./usuario.component.css']
 })
 export class UsuarioComponent implements OnInit {
@@ -15,9 +16,20 @@ export class UsuarioComponent implements OnInit {
     imgVisible:boolean=true;
     dataVisible:boolean=false;
     dateVisible:boolean=false;
+    hijoVisible:boolean=false;
 
   ngOnInit(): void {
   }
+
+  messageChild!:string;
+
+  onMessageChild(message:any) {
+    this.messageChild=message;
+   }
+
+
+
+
 
   checkToken(){
     this.authService.validarToken()
@@ -45,4 +57,7 @@ export class UsuarioComponent implements OnInit {
     this.dateVisible=false;
     
   }
+
+
+
 }

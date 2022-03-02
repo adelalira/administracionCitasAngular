@@ -5,6 +5,7 @@ import { AuthResponse } from 'src/app/auth/interface/auth-response';
 import { Usuario } from 'src/app/auth/interface/usuario';
 import { Cita } from '../../interface/cita';
 import { Servicio } from '../../interface/servicios';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -57,11 +58,27 @@ export class UsuarioService {
     return this.http.post<Cita[]>(url, body,{headers:opcion});
   }
 
-
-  getServicios(){
-    const url = `${this.baseUrl}/servicios`;
-    return this.http.get<Servicio[]>(url);
+  addServicio(idS:number, cita:any){
+    let id = localStorage.getItem('userId');
+    let idC = cita.id;
+    console.log("ID USUARIO" + id)
+    console.log("ID CITA" + idC)  
+    const url = `${this.baseUrl}/user/${id}/cita/${idC}/lineaCitaServicio`; //CAMBIAR
+    
+    const body =  idS;
+    const opcion = new HttpHeaders();
+    opcion.append('Access-Control-Allow-Origin','*');
+    return this.http.post<Servicio[]>(url, body,{headers:opcion});
   }
 
+  deleteAccount(){
+    let id = localStorage.getItem('userId');
+    const url = `${this.baseUrl}/user/${id} /delete`;
+   console.log(url)
+   let token = JSON.parse(<string>localStorage.getItem('token'));
+   const headers = new HttpHeaders()
+     .set('Authorization', `Bearer ${token}`);
+   return this.http.delete<Usuario[]>(url, {headers});
+  }
 
 }

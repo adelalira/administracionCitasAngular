@@ -1,5 +1,5 @@
 <div class="row text-center" >
-    <div class="col-md-6 offset-md-1 mt-5 bordeForm">
+    <div class="col-md-6 offset-md-1 mt-5 bordeForm m-0">
         <form (ngSubmit)="pedirCita()"
               #miFormulario="ngForm"
               autocomplete="off">
@@ -22,27 +22,12 @@
                 </div>
             </div>
 
-            <div class="mb-3 row">
+                
+            <div class="mb-3 row" *ngIf="visibleServicios">
                 <label class="col-sm-3 col-form-label">Treatments</label>
                 <div class="col-sm-9">
-                    <select >
-                        <option>Manicura</option>
-                        <option>Pedicura</option>
-                        <option>Depilación con cera</option>
-                        <option>Depilación laser</option>
-                        <option>Depilación de cejas con pinza</option>
-                        <option>Depilación de cejas con hilo</option>
-                        <option>Pestañas pelo a pelo</option>
-                        <option>Microblading de cejas</option>
-                        <option>Microblading de pestañas</option>
-                        <option>Rejuvenecimiento de parpados</option>
-                        <option>Lifting de pestañas</option>
-                        <option>Tinte de cejas</option>
-                        <option>Rizado de pestañas</option>
-                        <option>Diseño de cejas</option>
-                        <option>Tinte de pestañas</option>
-                        
-
+                    <select  >
+                        <option *ngFor="let i of servicios" (click)="addServicio(i)">{{i.nombre}}</option>             
                     </select>
 
                     <!--<span class="form-text text-danger"
@@ -51,15 +36,17 @@
                     </span>-->
                 </div>
             </div>
-  
+
+
 
   
+
           <!--BOTON PARA LOGEAR-->
-            <div class="row ">
+            <div class="row ">      
                 <div class="col">
                     <button type="submit"
                             [disabled]="miFormulario.invalid"
-                            class="custom-btn btn"> 
+                            class="custom-btn btn" > 
                         Enter
                     </button>
                 </div>
@@ -67,8 +54,10 @@
 
         
     </form>
-  
- 
+
+
+      
+    
 
 
 

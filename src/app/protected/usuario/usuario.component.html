@@ -16,27 +16,35 @@
     <app-datos></app-datos>
 </div>
 
-<div class="row" *ngIf="imgVisible">
+<div class="row paddingCards" *ngIf="imgVisible">
 
   <div class="card__container m-lg-auto m-md-auto">
-      <img src="../../../assets/img/fotoServicios2.jpg" alt="" class="card__photo">
+      <img src="../../../assets/img/fotoServicios2.jpg" (click)="askDate()"  alt="imagen de un minicarro de la compra y un ordenador portatil" class="card__photo">
   <!--     <div class="card__photo"></div> -->
       <div class="card__description">Discount 5%</div>
       </div>
 
       <div class="card__container m-lg-auto m-md-auto">
-      <img src="../../../assets/img/fotoServicios1.jpg" alt="" class="card__photo">
+      <img src="../../../assets/img/fotoServicios1.jpg" (click)="askDate()" alt="imagen constituida con fragmentos de diferentes elementos como un ordenador, un minicarro de la compra, dinero y un cartel luminoso" class="card__photo">
   <!--     <div class="card__photo"></div> -->
-      <div class="card__description">Discount 5%</div>
+      <div class="card__description">Discount from €200</div>
       </div>
 
       <div class="card__container m-lg-auto m-md-auto">
-      <img src="../../../assets/img/fotoServicios3.jpg" alt="" class="card__photo">
+      <img src="../../../assets/img/fotoServicios3.jpg" (click)="askDate()" alt="imagen de un minicarro de la compra y un ordenador portatil" class="card__photo">
   <!--     <div class="card__photo"></div> -->
       <div class="card__description">Discount 5%</div>
       </div>
 
+      
 </div>
+
+
+<div class="text-center mt-5">
+    <p> Appointments: {{messageChild}} </p>
+    <app-child (eventChild)="onMessageChild($event)"> </app-child>  
+</div>
+
 
 
 
