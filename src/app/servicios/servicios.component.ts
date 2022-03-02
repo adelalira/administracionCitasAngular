@@ -17,6 +17,24 @@ export class ServiciosComponent implements OnDestroy, OnInit {
   // thus we ensure the data is fetched before rendering
   dtTrigger= new Subject<any>();
 
+
+
+  nails:Servicio[]=[];
+  hair:Servicio[]=[];
+  eyelash:Servicio[]=[];
+  eyebrows:Servicio[]=[];
+
+  servicios:Servicio[]=[];
+  types(){
+
+    this.nails = this.servicios.filter(i => i.tipo == "Nails");
+    this.hair = this.servicios.filter(i => i.tipo == "Hair removal");
+    this.eyelash = this.servicios.filter(i => i.tipo == "Eyelash");
+    this.eyebrows = this.servicios.filter(i => i.tipo == "Eyebrows");
+  
+    
+  }
+
   
 
   constructor(private serviciosService:ServiciosService) { }
@@ -45,8 +63,9 @@ export class ServiciosComponent implements OnDestroy, OnInit {
      //   console.log("ok");
      //   console.log(resp); 
         this.data=resp;
-     //   console.log(this.data);
-       
+        this.servicios=resp;
+       console.log(this.data);
+       this.types();
         this.dtTrigger.next(null);
       },
       error: (e) => {

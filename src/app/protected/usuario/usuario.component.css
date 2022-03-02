@@ -25,7 +25,7 @@ html, body {height: 100%;}
 }
 
 .btn {
-  width: 400px;
+  width: 370px;
   height: 45px;
   font-family: 'Roboto', sans-serif;
   font-size: 11px;
@@ -83,7 +83,9 @@ body{
   transform:scale(1);
   transition:transform 1s;
   border-radius:15px;
-  margin:auto !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  margin-top:3em;
 
 }
 .card__container:hover{
@@ -125,6 +127,6 @@ body{
     transform:scale(1.07)
   }
 
-.paddingCards{
+/*.paddingCards{
   padding-top: 3em !important;
-}
+}*/
