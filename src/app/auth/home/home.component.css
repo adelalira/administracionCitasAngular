@@ -32,6 +32,7 @@ p{
 }
 
 
+
 .wrap {
     height: 100%;
     display: flex;
@@ -40,6 +41,7 @@ p{
     background: linear-gradient(135deg, #8254EA 0%, #E86DEC 100%);
   }
   
+  /**CSS BOTON**/
   .btn {
     width: 340px;
     height: 45px;
@@ -66,12 +68,3 @@ p{
   }
 
   
-/*
-@media screen and (max-width: 846px) {
-    .carrusel{
-        width: 80%;
-        padding-top: 2em;
-        margin-left: auto;
-        margin-right: auto;
-    }
-  }*/

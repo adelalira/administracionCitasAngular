@@ -60,14 +60,14 @@ export class UsuarioService {
     return this.http.post<Cita[]>(url, body,{headers:opcion});
   }
 
-  addServicio(idS:number, cita:any){
+  addServicio(servicio:any, cita:any){
     let id = localStorage.getItem('userId');
     let idC = cita.id;
     console.log("ID USUARIO" + id)
     console.log("ID CITA" + idC)  
     const url = `${this.baseUrl}/cita/${idC}/lineaCitaServicio`; //CAMBIAR
     
-    const body =  idS;
+    const body =  servicio;
     const opcion = new HttpHeaders();
     opcion.append('Access-Control-Allow-Origin','*');
     return this.http.post<Servicio[]>(url, body,{headers:opcion});

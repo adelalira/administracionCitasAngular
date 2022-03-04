@@ -12,18 +12,28 @@ import { catchError, map, Observable, of } from 'rxjs';
 })
 export class EmailValidatorService {
 
+   /**
+   * VARIABLE PARA GUARDAR LA RUTA
+   */
   private baseUrl: string = environment.baseUrl;
   
+  /**
+   * CONSTRUCTOR DONDE LLAMAMOS A HTTPCLIENTE PAR PODER HACER PETICIONES
+   * @param http 
+   */
   constructor(private http:HttpClient) { }
 
-
+/**
+ * ESTE METODO COMPRUEBA SI EL EMAIL INTRODUCIDO EN EL CAMPO DE REGISTRO ESTA EN LA BASE DE DATOS MEDIANTE EL METODO 
+ * QUE ESTA ABAJO LLAMADO COMPRUEBAEMAIL
+ * @param control 
+ * @returns 
+ */
   validate(control: AbstractControl): Observable<ValidationErrors | null> {
     const email = control.value;
-    //console.log(email);
-    
+      
     return this.compruebaEmail(email).pipe(
       map (resp => {
-      //  console.log(resp);
         if(resp.email != null){
            return {emailTomado: true};
         }else{
@@ -37,7 +47,11 @@ export class EmailValidatorService {
     
    }
 
-  //Petición get para comprobar el email
+  /**
+   * ESTA PETICIÓN ES LA QUE COMPRUEBA SI EL EMAIL YA EXISTE
+   * @param email 
+   * @returns 
+   */
   compruebaEmail(email:string){
     const url = `${this.baseUrl}/auth/user/email/${email}`;
     const opcion = new HttpHeaders();

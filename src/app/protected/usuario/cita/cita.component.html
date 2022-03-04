@@ -1,6 +1,6 @@
 <div class="row text-center" >
-    <div class="col-md-6 offset-md-1 mt-5 bordeForm m-0">
-        <form (ngSubmit)="pedirCita()"
+    <div class="col-md-6 col-12 offset-md-1 mt-5 bordeForm m-0">
+        <form (ngSubmit)="addServicio()"
               #miFormulario="ngForm"
               autocomplete="off">
             
@@ -10,24 +10,23 @@
                 <div class="col-sm-9">
                     
                     <input type="datetime-local"
-                           class="form-control"
+                           class="form-control hora"
                            [(ngModel)]="dia"
                            name="dia"
                            placeholder="dia">
-  
-                    <!--<span class="form-text text-danger"
-                        *ngIf="nombreValido()">
-                        Debe de ser de 3 letras
-                    </span>-->
+                    <p>You can only enter appointments on the hour</p>
+
                 </div>
             </div>
 
+            <button  class="custom-btn btn"  (click)="pedirCita()"> check availability</button>
+
                 
-            <div class="mb-3 row" *ngIf="visibleServicios">
+            <div class="mb-3 row mt-5 " >
                 <label class="col-sm-3 col-form-label">Treatments</label>
-                <div class="col-sm-9">
+                <div class="col-sm-9 ">
                     <select  >
-                        <option *ngFor="let i of servicios" (click)="addServicio(i)">{{i.nombre}}</option>             
+                        <option *ngFor="let i of servicios" (click)="saveServicio(i)">{{i.nombre}}</option>             
                     </select>
 
                     <!--<span class="form-text text-danger"
@@ -54,6 +53,8 @@
 
         
     </form>
+
+
 
 
       

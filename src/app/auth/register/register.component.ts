@@ -13,7 +13,14 @@ import { EmailValidatorService } from '../services/email-validator.service';
 })
 export class RegisterComponent implements OnInit {
 
-
+/**
+ * INYECTAMOS EN EL CONSTRUCTOR EL FORMBUILDER, ROUTER, AUTHSERVICE, VALIDATORSERVICE Y EMAILVALIDATORSERVICE
+ * @param fb 
+ * @param router 
+ * @param authService 
+ * @param validatorService 
+ * @param emailValidator 
+ */
   constructor(  private fb:FormBuilder,
     private router:Router,
     private authService:AuthService,
@@ -22,11 +29,14 @@ export class RegisterComponent implements OnInit {
     ) { }
 
 
+    /**
+     * CREAMOS UN FORMGROUP QUE CONTENDRA TODOS LOS ELEMENTOS DE NUESTRO USUARIO, COMPROBANDO TAMBIEN SUS VALIDACIONES
+     */
   miFormulario: FormGroup = this.fb.group({
     name:      ['', [ Validators.required, Validators.minLength(3)]],
     lastname:  ['', [ Validators.required, Validators.minLength(3)]],
     dni:       ['', [ Validators.required, Validators.minLength(9), Validators.maxLength(9)],
-                      //Validators.pattern('[0-9]{8}[A-Z]{1}$')  //NO FUNCIONA
+                      Validators.pattern("^[a-z0-9_-]{8,15}$")
                     ],
     telephone: ['', [ Validators.required, Validators.minLength(9), Validators.maxLength(9),
                       Validators.min(600000000),Validators.max(899999999)]],
@@ -42,22 +52,27 @@ export class RegisterComponent implements OnInit {
   }
   );
 
+  /**
+   * NOS MUESTRA DIFERENTES ERRORES SEGUN QUE INTRODUZCAMOS DE EMAIL
+   */
   get emailErrorMsg(): string {
     
     const errors = this.miFormulario.get('email')?.errors!;
     if ( errors['required'] ) {
-      return 'Email es obligatorio';
+      return 'Email is required';
     } else if ( errors['pattern'] ) {
-      return 'El valor ingresado no tiene formato de correo';
+      return 'The entered value does not have mail format';
     } else if ( errors['emailTomado'] ) {
-      return 'El email ya fue tomado';
+      return 'The email has already been taken';
     }
 
     return '';
   } 
   
 
-
+/**
+ * RESETEAMOS LAS VARIABLES PARA CUANDO HAYA UN NUEVO REGISTRO NO PUEDAN DARNOS PROBLEMAS
+ */
   ngOnInit(): void {
     this.miFormulario.reset({  
       name: '',
@@ -69,6 +84,11 @@ export class RegisterComponent implements OnInit {
     })
   }
 
+  /**
+   * COMPRUEBA SI LOS CAMPOS INTRODUCIDOS SON VALIDOS, Y SI TOCAS EL CAMPO Y SALES TE LO MARCA COMO TOCADO
+   * @param campo 
+   * @returns 
+   */
   campoNoValido( campo: string ) {
     return this.miFormulario.get(campo)?.invalid
             && this.miFormulario.get(campo)?.touched;
@@ -76,19 +96,20 @@ export class RegisterComponent implements OnInit {
 
 
  
-
+/**
+ * ENVIA EL FORMULARIO AL BACKEND PARA EL REGISTRO DEL USUARIO MEDIANTE UNA PETICIÓN POST QUE ENCONTRAMOS EN AUTHSERVICE
+ */
   submitFormulario() {
 
-    console.log(this.miFormulario.value);
-
-   // this.miFormulario.markAllAsTouched();
 
    const user = this.miFormulario.value
 
    this.authService.register(user)
     .subscribe({
       next: (resp => {
-        //reseteamos el formulario
+        /**
+ * RESETEAMOS LAS VARIABLES PARA CUANDO HAYA UN NUEVO REGISTRO NO PUEDAN DARNOS PROBLEMAS
+ */
         this.miFormulario.reset({
           fullName: '',
           email: '',
@@ -96,17 +117,17 @@ export class RegisterComponent implements OnInit {
           password: '',
           condiciones: false
         })
-
         this.router.navigateByUrl('/'); //va al home
-        //localStorage.setItem('token',resp.access_token!)
      }),
       error: resp => {
-        console.log(resp);
-        
-        Swal.fire('Error', resp.error.message, 'error')
+        Swal.fire({
+          title:'Error',
+          icon: 'error',
+          text:resp.error.mensaje
+        });
       }
    });
-    
-
   }
+
+  
 }

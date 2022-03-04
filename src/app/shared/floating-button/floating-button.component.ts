@@ -8,9 +8,15 @@ import { Component, HostListener, Inject, Input, OnInit } from '@angular/core';
 })
 export class FloatingButtonComponent implements OnInit {
 
-  //el @Input me permite modificar el nombre del botón flotante dependiendo de la página en la que me ecnuentre
+  /**
+   * ESTE INPUT SERA EL QUE RECIBA LA INFORMACIÓN DE LAS PÁGINAS PARA QUE SE VISUALICEN EN EL BOTÓN FLOTANTE Y
+   * EL USUARIO PUEDA SABER EN TODO MOMENTO DONDE ESTA
+   */
   @Input() ubicacion: string = '';
  
+  /**
+   * VARIABLE BOOLEAN PARA QUE SE VEA EL BOTÓN FLOTANTE CUANDO BAJAMOS
+   */
   windowScrolled: boolean | undefined;
 
   ngOnInit(): void {
@@ -18,6 +24,10 @@ export class FloatingButtonComponent implements OnInit {
 
   constructor(@Inject(DOCUMENT) private document: Document) {}
   
+  /**
+   * ESTE METODO ES EL QUE HACE EL BOTÓN FLOTANTE SE PUEDA VER CUANDO SE BAJA LA PÁGINA Y DEJE DE VERSE
+   * CUANDO ESTAMOS EN LA APRTE SUPERIOR
+   */
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
       if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 100) {
@@ -27,6 +37,10 @@ export class FloatingButtonComponent implements OnInit {
           this.windowScrolled = false;
       }
   }
+
+  /**
+   * ESTE METODO MODIFICA LA VELOCIDAD DE LA ANIMACIÓN DEL BOTÓN, ES DECIR, LO RAPIDO QUE SUBE LA PÁGINA
+   */
   scrollToTop(): void {
       (function smoothscroll(): void {
           const currentScroll = document.documentElement.scrollTop || document.body.scrollTop;

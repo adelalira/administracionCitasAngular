@@ -10,15 +10,27 @@ import { UsuarioService } from '../service/usuario.service';
 })
 export class ChildComponent implements OnInit {
 
+  /**
+   * INYECTAMOS EL SERVICIO DEL USUARIO
+   * @param userService 
+   */
   constructor(private userService: UsuarioService) { }
 
+  /**
+   * LLAMAMOS AL METODO APPOINTMENUSER CUUANDO SE CARGELA PÁGINA PARA HACER UNA PETICIÓN GET QUE NOS RECUPERE LAS CITAS
+   */
   ngOnInit(): void {
     this.appointmentUser();
   }
 
+/**
+ * CREAMOS UNA VARIABLE PARA INTRODUCIR EL NUMERO DE CITAS DEL USUARIO
+ */
   citaslongitud!:any;
 
-  
+  /**
+   * HACEMOS UN EVENTO OUTPUT QUE LLAMAMOS EVENTCHILD
+   */
   @Output()
   eventChild = new EventEmitter<string>();
 

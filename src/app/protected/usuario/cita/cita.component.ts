@@ -12,10 +12,20 @@ import { UsuarioService } from '../service/usuario.service';
 })
 export class CitaComponent implements OnInit {
 
+  /**
+   * INYECTAMOS ROUTER, USUARIOSERVICE Y SERVICIOSSERVICE
+   * @param router 
+   * @param servicioDeUsuario 
+   * @param servicioDeServicios 
+   */
   constructor(  private router:Router, 
                 private servicioDeUsuario:UsuarioService,
                 private servicioDeServicios:ServiciosService) { }
 
+  
+  /**
+   * INICIAMOS EL METODO MOSTRARSERVICIOS PARA QUE CARGEN LOS SERVICIOS AL CARGAR LA PAGINA
+   */
   ngOnInit(): void {
     this.mostrarServicios();
   }
@@ -24,25 +34,29 @@ export class CitaComponent implements OnInit {
 
   
 
-
+/**
+ * CREAMOS LAS VARIABLES NECESARIAS
+ */
   dia!:string;
   servicios:Servicio[]=[]
   cita:any;
+  serviciosPedido:Servicio[]=[]
 
-  visibleServicios:boolean=false;
 
+/**
+ * METODO PARA PEDIR CITA, HACE UNA PETICIÓN POST QUE CREA UNA CITA SIN SERVICIO.
+ */
   pedirCita(){
-      
     this.servicioDeUsuario.enviarCita(this.dia)
     .subscribe({
       next: (resp => {
         console.log(resp)
         this.cita=resp;
-        this.visibleServicios=true;
-        //console.log(this.cita);
-
-
-        //this.router.navigateByUrl('/protected/usuario/datos'); 
+        console.log(resp)
+        Swal.fire({
+          title:'Appointment is available',
+          icon: 'success',
+        });
      }),
       error: resp => {
         console.log(resp.message);
@@ -54,15 +68,21 @@ export class CitaComponent implements OnInit {
       }
    });
 }
+  /**
+   * METODO PARA GUARDAR EL SERVICIO ELEGIDO POR EL USUARIO PARA SU CITA
+   * @param servicio 
+   */
+  saveServicio(servicio:any){
+    this.serviciosPedido=servicio;
+  }
 
+ /**
+  * METODO QUE BUSCA LOS SERVICIOS PARA IMPRIMIRLOS Y QUE EL USUARIO PUEDA VERLOS
+  */
   mostrarServicios(){
-      
     this.servicioDeServicios.buscaServiciosOfrecidos().subscribe({
       next: (resp:any) => {
-     //   console.log("ok");
-     //   console.log(resp); 
         this.servicios=resp;
-     //   console.log(this.data);
       },
       error: (e) => {
         console.log(e);
@@ -72,11 +92,18 @@ export class CitaComponent implements OnInit {
   )
 }
 
-
-
-
-  addServicio(id:any){
-    this.servicioDeUsuario.addServicio(id,this.cita)
+ /**
+   * METODO QUE REALIZA UNA PETICIÓN POST PARA AÑADIRLE A UNA CITA UN SERVICIO
+   */
+  addServicio(){
+    if(this.cita==null){
+      Swal.fire({
+        title:'Error',
+        icon: 'error',
+        text:'You must first choose an available appointment'
+      });
+    }
+    this.servicioDeUsuario.addServicio(this.serviciosPedido,this.cita)
     .subscribe({
       next: (resp => {
         console.log(resp)
@@ -98,7 +125,6 @@ export class CitaComponent implements OnInit {
    });
   }
 
-
-
+ 
 
 }
