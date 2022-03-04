@@ -42,7 +42,7 @@ export class CitaComponent implements OnInit {
         //console.log(this.cita);
 
 
-        this.router.navigateByUrl('/protected/usuario/datos'); 
+        //this.router.navigateByUrl('/protected/usuario/datos'); 
      }),
       error: resp => {
         console.log(resp.message);

@@ -22,11 +22,16 @@ export class ChildComponent implements OnInit {
   @Output()
   eventChild = new EventEmitter<string>();
 
+  /**
+   * METODO QUE EMITE EL EVENTO, INDICAMOS QUE ES LO QUE LE MANDAMOS AL PADRE
+   */
   sendDad() {
-    
     this.eventChild.emit(this.citaslongitud);
   }
 
+  /**
+   * BUSCAMOS LAS CITAS QUE TIENE EL USUARIO PARA SABER CUANTAS TIENE Y MANDARLAS AL PADRE (USUARIO)
+   */
   appointmentUser(){
     this.userService.buscaCitasUsuario()
     .subscribe({

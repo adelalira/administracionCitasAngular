@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-lg-12 col-xs-6">
-      <h1 class="text-center titulo"> WELCOME TO USER ZONE!</h1>
+      <h1 class="text-center titulo"> WELCOME {{usuario.name | uppercase}} TO USER ZONE!</h1>
       <div class="frame text-center">
           <button class="custom-btn btn"  (click)="datas()"><span>Check my data</span></button>
           <button class="custom-btn btn"  (click)="askDate()"><span>Ask for a date</span></button>
@@ -16,7 +16,7 @@
     <app-datos></app-datos>
 </div>
 
-<div class="row paddingCards " *ngIf="imgVisible">
+<div class="row paddingCards" *ngIf="imgVisible">
 
   <div class="card__container m-lg-auto m-md-auto">
       <img src="../../../assets/img/fotoServicios2.jpg" (click)="askDate()"  alt="imagen de un minicarro de la compra y un ordenador portatil" class="card__photo">

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Usuario } from 'src/app/auth/interface/usuario';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import Swal from 'sweetalert2';
 import { CitaComponent } from './cita/cita.component';
+import { UsuarioService } from './service/usuario.service';
 
 @Component({
   selector: 'app-usuario',
@@ -11,14 +14,18 @@ import { CitaComponent } from './cita/cita.component';
 export class UsuarioComponent implements OnInit {
 
   constructor(private authService:AuthService,
-    private router:Router) { }
+              private router:Router,
+              private servicioDeUsuario: UsuarioService) { }
 
     imgVisible:boolean=true;
     dataVisible:boolean=false;
     dateVisible:boolean=false;
     hijoVisible:boolean=false;
 
+    usuario:Usuario = {name:"",lastname:"",dni:"",telephone:0,email:"",password:""};
+
   ngOnInit(): void {
+    this.cargarDatosUsuario();
   }
 
   messageChild!:string;
@@ -36,8 +43,7 @@ export class UsuarioComponent implements OnInit {
     .subscribe({
       next: () => console.log('Token válido'),
       error: resp => {
-        console.log(resp.error.message);
-        console.log("FALLA AQUI 2");
+
         this.router.navigateByUrl('/auth/login')
         
       } 
@@ -57,6 +63,26 @@ export class UsuarioComponent implements OnInit {
     this.dateVisible=false;
     
   }
+
+  cargarDatosUsuario(){
+     
+    this.servicioDeUsuario.buscaDatosUsuario()
+    .subscribe({
+      next: (resp => {
+        this.usuario=resp;
+        
+     }),
+      error: resp => {
+        console.log(resp.message);
+        Swal.fire({
+          title:'Error',
+          icon: 'error',
+          text:resp.error.mensaje
+        });
+      }
+   });
+  }
+  
 
 
 

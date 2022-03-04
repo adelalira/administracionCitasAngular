@@ -40,14 +40,17 @@
     border-radius: 4%;
     border: none;
     background-color: #be8f8c;
+    width: 350px;
+    margin: 0 !important;
+    padding-bottom: 2em;
+    margin-top: 2em;
 }
 
 
 /*IMAGEN*/
 .nailsLogin{
-    width: 80%;
+    width: 300px;
     text-align: center;
-    margin-left: 20%;
-    margin-right: auto;
+   
     margin-top: 16%;
 }
