@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:9000'
+  baseUrl: 'https://perfectbodyapp.herokuapp.com'
 };
 
 /*
