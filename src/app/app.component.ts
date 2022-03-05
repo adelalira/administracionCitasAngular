@@ -41,7 +41,9 @@ export class AppComponent {
   }
 
   deletetoken(){
-    localStorage.clear();
+      localStorage.clear();
+
+   
   }
 
 

@@ -20,7 +20,7 @@ export class UsuarioService {
 
   buscaDatosUsuario(){
     let id = localStorage.getItem('userId');
-    const url = `${this.baseUrl}/auth/user/${id}`;
+    const url = `${this.baseUrl}/user`;
     let token = JSON.parse(<string>localStorage.getItem('token'));
     const headers = new HttpHeaders()
       .set('Authorization', `Bearer ${token}`);
@@ -30,7 +30,7 @@ export class UsuarioService {
 
   buscaCitasUsuario(){
     let id = localStorage.getItem('userId');
-    const url = `${this.baseUrl}/user/${id}/cita`;
+    const url = `${this.baseUrl}/cita`;
     let token = JSON.parse(<string>localStorage.getItem('token'));
     const headers = new HttpHeaders()
       .set('Authorization', `Bearer ${token}`);
@@ -39,7 +39,7 @@ export class UsuarioService {
 
   cancelDate(idC:number){
     let id = localStorage.getItem('userId');
-     const url = `${this.baseUrl}/user/${id}/cita/${idC}/delete`;
+     const url = `${this.baseUrl}/cita/${idC}/delete`;
     console.log(url)
     let token = JSON.parse(<string>localStorage.getItem('token'));
     const headers = new HttpHeaders()
@@ -49,23 +49,25 @@ export class UsuarioService {
 
   enviarCita(dia:string){
     let id = localStorage.getItem('userId');
-    const url = `${this.baseUrl}/user/${id}/cita`; //CAMBIAR
+    const url = `${this.baseUrl}/cita`; //CAMBIAR
     const body =  {
       "dia":dia
                   };
-    const opcion = new HttpHeaders();
+    let token = JSON.parse(<string>localStorage.getItem('token'));
+    const opcion = new HttpHeaders()
+    .set('Authorization', `Bearer ${token}`);
     opcion.append('Access-Control-Allow-Origin','*');
     return this.http.post<Cita[]>(url, body,{headers:opcion});
   }
 
-  addServicio(idS:number, cita:any){
+  addServicio(servicio:any, cita:any){
     let id = localStorage.getItem('userId');
     let idC = cita.id;
     console.log("ID USUARIO" + id)
     console.log("ID CITA" + idC)  
-    const url = `${this.baseUrl}/user/${id}/cita/${idC}/lineaCitaServicio`; //CAMBIAR
+    const url = `${this.baseUrl}/cita/${idC}/lineaCitaServicio`; //CAMBIAR
     
-    const body =  idS;
+    const body =  servicio;
     const opcion = new HttpHeaders();
     opcion.append('Access-Control-Allow-Origin','*');
     return this.http.post<Servicio[]>(url, body,{headers:opcion});
@@ -73,7 +75,7 @@ export class UsuarioService {
 
   deleteAccount(){
     let id = localStorage.getItem('userId');
-    const url = `${this.baseUrl}/user/${id} /delete`;
+    const url = `${this.baseUrl}/delete`;
    console.log(url)
    let token = JSON.parse(<string>localStorage.getItem('token'));
    const headers = new HttpHeaders()

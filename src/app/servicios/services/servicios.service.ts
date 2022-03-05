@@ -9,13 +9,22 @@ import { Observable } from 'rxjs';
 })
 export class ServiciosService {
 
+  /**
+   * VARIABLE PARA GUARDAR LA RUTA
+   */
   private baseUrl: string = environment.baseUrl; 
   
+  /**
+   * CONSTRUCTOR DONDE LLAMAMOS A HTTPCLIENTE PAR PODER HACER PETICIONES
+   * @param http 
+   */
   constructor(private http:HttpClient) { }
 
-
+  /**
+   * 
+   * @returns PETICIÓN GET PARA TRAERNOS TODOS LOS SERVICIOS DEL BACK
+   */
   buscaServiciosOfrecidos():Observable<Servicio>{
-
     const url = `${ this.baseUrl }/servicios`; 
 
     const opcion = new HttpHeaders();

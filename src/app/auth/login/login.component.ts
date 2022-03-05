@@ -10,11 +10,17 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  /**
+   * VARIABLES QUE RECIBEN LOS DATOS DE EMAIL Y PASSWORD DEL HTML
+   */
   email !: string;
   password !: string;
 
-  
-  
+  /**
+   * INYECTAMOS EN EL CONSTRUCTOR ROUTER Y AUTHSERVICE
+   * @param router 
+   * @param authService 
+   */
     constructor(  private router:Router, 
                   private authService: AuthService
                   ) { }
@@ -22,15 +28,16 @@ export class LoginComponent implements OnInit {
     ngOnInit(): void {
     }
   
+    /**
+     * METODO QUE LLAMA A AL AUTHSERVICE PARA HACER LOGIN, ENVIANDOLE EL EMAIL Y CONTRASELA.
+     * SI EL USUARIO Y CONTRASEÑA ESTUVIERA REGISTRADO NOS DEVOLVERIA UN TOKEN QUE GUARDAREMOS EN EL LOCALSTORAGE
+     */
     login(){
-      
       this.authService.login(this.email,this.password)
       .subscribe({
         next: (resp => {
-         // console.log(resp)
           localStorage.setItem('token',JSON.stringify(resp.access_token))
           this.getIdUser();
-          //this.router.navigateByUrl('/protected/usuario'); 
        }),
         error: resp => {
           console.log(resp.message);
@@ -43,11 +50,12 @@ export class LoginComponent implements OnInit {
      });
   }
 
+  /**
+   * METODO QUE GUARDA LA ID DEL USUARIO EN EL LOCALSTORAGE.
+   */
   getIdUser() {
     this.authService.loginGetIdUser().subscribe((resp) => {
-      console.log(resp);
       localStorage.setItem('userId', JSON.stringify(resp));
-      console.log(`/protected/usuario/${resp}`);
       this.router.navigateByUrl(`/protected/usuario/${resp}`);
     });
   }

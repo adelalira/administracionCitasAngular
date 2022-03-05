@@ -32,16 +32,16 @@
       <div class="row">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="../../../assets/img/manicura.jpg" class="d-block w-100" alt="...">
+            <img src="../../../assets/img/Manicura 2.jpg" class="d-block w-100" alt="Una persona elige entre diferentes esmaltes de uñas">
           </div>
           <div class="carousel-item">
-            <img src="../../../assets/img/pedicura.jpg" class="d-block w-100" alt="...">
+            <img src="../../../assets/img/Manicura.jpg" class="d-block w-100" alt="Clienta sonrie mientras su manicurista le hace las uñas">
           </div>
           <div class="carousel-item">
-            <img src="../../../assets/img/cera.jpg" class="d-block w-100" alt="...">
+            <img src="../../../assets/img/laser.jpg" class="d-block w-100" alt="Esteticista realizando laser facial a una clienta">
           </div>
           <div class="carousel-item">
-            <img src="../../../assets/img/cejas.jpg" class="d-block w-100" alt="...">
+            <img src="../../../assets/img/masaje.jpg" class="d-block w-100" alt="Manos dando un masaje a unos pies">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -55,6 +55,72 @@
       </div>
     </div>
       </div>
+
+
+
+      <div class="row text-center mt-5">
+        <div class="col-md-12 col-lg-12 col-sm-12 col-12">
+    
+          <h2>Contact us</h2>
+            <form autocomplete="off" 
+                  [formGroup]="miFormulario"
+                  (ngSubmit)="submitFormulario()">
+    
+
+    
+                <!-- Last Name -->
+                <div class="row mb-3 mt-md-3 mx-3">
+                    <label class="col-sm-3 col-4 col-md-2 col-form-label">Subject</label>
+                    <div class="col-sm-9">
+                        <input type="text"
+                               class="form-control"
+                               formControlName="subject"
+                               placeholder="Job">
+    
+                      <span class="form-text text-danger"
+                              *ngIf="campoNoValido('subject')">
+                              Este campo es obligatorio
+                        </span>
+                    </div>
+                </div>
+    
+    
+                <!-- DNI -->
+                <div class="row mb-3 mt-md-3 mx-3   ">
+                    <label class="col-sm-3 col-4 col-md-2 col-form-label">Text</label>
+                    <div class="col-sm-9">
+                        <input type="text"
+                               class="form-control"
+                               formControlName="text"
+                               placeholder="Your message">
+    
+                        <span class="form-text text-danger"
+                              *ngIf="campoNoValido('text')">
+                            Este campo es obligatorio
+                        </span>
+                    </div>
+                </div>
+                
+
+
+    
+    
+                <div class="row">
+                    <div class="col"><!-- [disabled]="miFormulario.!invalid"  -->
+                        <button class="custom-btn btn"
+                                [disabled]="miFormulario.invalid"  
+                                type="submit">
+                            Send email
+                        </button>
+                    </div>
+                </div>
+    
+    
+            </form>
+        </div>
+    </div>
+
+
 
       
 
