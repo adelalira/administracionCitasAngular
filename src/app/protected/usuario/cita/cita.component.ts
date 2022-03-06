@@ -31,7 +31,6 @@ export class CitaComponent implements OnInit {
     this.mostrarServicios();
   }
 
-  
 
 
   
