@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiciosService } from 'src/app/servicios/services/servicios.service';
 import Swal from 'sweetalert2';
+import { Cita } from '../../interface/cita';
 import { Servicio } from '../../interface/servicios';
 import { UsuarioService } from '../service/usuario.service';
 
@@ -30,6 +31,7 @@ export class CitaComponent implements OnInit {
     this.mostrarServicios();
   }
 
+  
 
 
   
@@ -39,7 +41,7 @@ export class CitaComponent implements OnInit {
  */
   dia!:string;
   servicios:Servicio[]=[]
-  cita:any;
+  cita:Cita[]=[];
   serviciosPedido:Servicio[]=[]
 
 
