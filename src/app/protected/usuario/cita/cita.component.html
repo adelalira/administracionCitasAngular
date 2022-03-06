@@ -1,6 +1,6 @@
 <div class="row text-center" >
     <div class="col-md-6 col-12 offset-md-1 mt-5 bordeForm m-0">
-        <form (ngSubmit)="addServicio()"
+        <form
               #miFormulario="ngForm"
               autocomplete="off">
             
@@ -36,7 +36,7 @@
                 </div>
             </div>
 
-
+            <button  class="custom-btn btn"  (click)="addServicio()"> check availability</button>
 
   
 
