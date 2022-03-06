@@ -24,7 +24,7 @@
                 
             <div class="mb-3 row mt-5 " >
                 <label class="col-sm-3 col-form-label">Treatments</label>
-                <div class="col-sm-9 ">
+                <div class="col-sm-9 " *ngIf="servicios?.length != 0">
                     <select  *ngIf="servicios?.length != 0">
                         <option *ngFor="let i of servicios" (click)="saveServicio(i)" >{{i.nombre}}</option>             
                     </select>
