@@ -39,7 +39,7 @@ export class CitaComponent implements OnInit {
  */
   dia!:string;
   servicios:Servicio[]=[]
-  cita:any;
+  cita:Cita[]=[];
   serviciosPedido:Servicio[]=[]
 
 
