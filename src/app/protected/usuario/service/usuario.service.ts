@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { AuthResponse } from 'src/app/auth/interface/auth-response';
 import { Usuario } from 'src/app/auth/interface/usuario';
 import { Cita, ListaCita, ListaServicio } from '../../interface/lineaCitaServicio';
 
