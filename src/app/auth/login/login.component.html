@@ -1,7 +1,7 @@
 <div class="row text-center  gx-0" >
     <div class="col-md-12 col-lg-6 offset-md-auto   d-none d-lg-block">
 
-        <img src="../../../assets/img/fondoRegister.jpg" class="nailsLogin" alt="Chica que nos muestra su manicura mientras posa en su rostro unas flores" >
+        <img src="./assets/img/fondoRegister.jpg" class="nailsLogin" alt="Chica que nos muestra su manicura mientras posa en su rostro unas flores" >
     </div>
     <div class="col-md-5 offset-md-1 mt-5 bordeForm m-sm-5">
         <form (ngSubmit)="login()"
@@ -17,12 +17,8 @@
                            class="form-control marginExtra"
                            [(ngModel)]="email"
                            name="email"
-                           placeholder="Email">
-  
-                    <!--<span class="form-text text-danger"
-                        *ngIf="nombreValido()">
-                        Debe de ser de 3 letras
-                    </span>-->
+                           placeholder="Email"
+                           required="required">  
                 </div>
             </div>
   
@@ -36,12 +32,10 @@
                          class="form-control marginExtra"
                          [(ngModel)]="password"
                          name="password"
-                         placeholder="Password">
+                         placeholder="Password"
+                         required="required">
   
-                  <!--<span class="form-text text-danger"
-                      *ngIf="nombreValido()">
-                      Debe de ser de 3 letras
-                  </span>-->
+
               </div>
           </div>
   
@@ -80,7 +74,7 @@
         </div>
         <div class="col-md-12 col-lg-6 offset-md-auto d-lg-none ">
 
-            <img src="../../../assets/img/fondoRegister.jpg" class="nailsLogin" alt="Chica que nos muestra su manicura mientras posa en su rostro unas flores" >
+            <img src="./assets/img/fondoRegister.jpg" class="nailsLogin" alt="Chica que nos muestra su manicura mientras posa en su rostro unas flores" >
         </div>
 
         <!--BOTON DE REGISTRAR-->
