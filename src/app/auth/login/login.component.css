@@ -84,3 +84,8 @@
 
 
 }
+
+.form-control {
+  width: 80% !important;
+  margin: auto !important;
+}

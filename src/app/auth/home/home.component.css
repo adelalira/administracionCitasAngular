@@ -6,8 +6,9 @@
 
 
 h1{
-    font-size: 40px;
+    font-size: 40px !important;
 }
+
 
 
 .carrusel{
@@ -22,7 +23,6 @@ h1{
 }
 
 p{
-
     padding-right: 12%;
     padding-left: 12%;
     text-align: justify;

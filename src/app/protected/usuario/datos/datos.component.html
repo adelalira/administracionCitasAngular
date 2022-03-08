@@ -1,4 +1,4 @@
-<div class="row mt-3">
+<div class="row mt-3  gx-0">
     <h1 class="text-center">YOUR DATA!</h1>        
         <div class="col-md-6 col-12 text-center">
                 <h2><strong>Name: </strong><span class="label label-default">{{usuario.name}}</span></h2>
@@ -16,8 +16,8 @@
 
                     <div *ngFor="let j of i.listaServicios" >
                         <span class="label label-default"><strong>Servicio:</strong> {{j.servicio.nombre}}</span><br> <br>
-                        <span class="label label-default"><strong>Precio:</strong> {{j.servicio.precio}}</span><br> <br>
-                        <span class="label label-default"><strong>Descuento aplicado:</strong> {{j.descuento}}</span><br> 
+                        <span class="label label-default"><strong>Precio:</strong> {{j.servicio.precio}}€</span><br> <br>
+                        <span class="label label-default"><strong>Descuento aplicado:</strong> {{j.descuento}}%</span><br> 
                     </div> 
                     <button class="custom-btn btn" (click)="cancelDate(i.id)">Cancelar</button>
 

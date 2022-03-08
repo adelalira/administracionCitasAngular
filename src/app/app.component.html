@@ -1,13 +1,20 @@
 <div class="colorRosa">
   <!-- HEADER -->
-  <div class="row"> <!-- start row-->
+  <div class="row gx-0 mb-2"> <!-- start row-->
     <div class="col-12">
       <header class="colorVerde ">
-        <img src="./assets/img/logo.png" class="logo" routerLink="auth/home" routerLinkActive="active">
-        <img src="./assets/img/nombre.png" class="nombre" routerLink="auth/home" routerLinkActive="active" >
-        <img src="./assets/icon/login.png" class="loginIcon" routerLink="auth/login" routerLinkActive="active">
-        <img src="./assets/icon/logout.png" class="loginIcon2" routerLink="auth/home" routerLinkActive="active" (click)="deletetoken()">
+        <img src="../../../assets/img/logo.png" class="logo" routerLink="auth/home" >
+        <div class="nombreCentrado">
+          <img src="../../../assets/img/nombre.png" class="nombre" routerLink="auth/home"  >
+        </div>
+        <div class="loginIcon">
+          <img src="../../../assets/icon/login.png" class="imagenLogin" routerLink="auth/login" >Log in
+        </div>
+        <div class="loginIcon2">
+         <img src="../../../assets/icon/logout.png"  class="imagenLogout"  routerLink="auth/home"  (click)="deletetoken()"> Log out
+        </div>
         <i class="fa-solid fa-user-large" routerLink="auth/login" routerLinkActive="active"></i>
+
       </header>
     </div>
   </div>  <!-- end row-->
@@ -29,20 +36,12 @@
     <router-outlet></router-outlet>
   </div>
  
-<div class="row ">
+<div class="row gx-0">
   <div class="col-12 ">
     <footer class="text-center text-white colorRosa p-4">
       <div class="text-center text-dark">
         <a href="https://www.linkedin.com/in/adela-mar%C3%ADa-lira-s%C3%A1nchez-6421391a6/" class="decoracionFooter" >Aplicación desarrollada por Adela Lira <i class="fa-regular fa-face-grin-hearts"></i></a>
-        <img src="./assets/icon/programmer.png" class="developer" alt="chica programando">
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            Accesibilidad      </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" (click)="changeFont('+')" id="font-up">Aumentar texto</a></li>
-              <li><a class="dropdown-item" (click)="changeFont('-')" id="font-down">Dismunir texto</a></li>
-            </ul>
-          </div>
+        <img src="../../../assets/icon/programmer.png" class="developer" alt="chica programando">
       </div>
     </footer>
   </div>
