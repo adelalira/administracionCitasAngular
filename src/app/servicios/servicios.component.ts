@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ServiciosService } from './services/servicios.service';
 import { Servicio } from './interface/servicio';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-servicios',
@@ -86,8 +87,12 @@ export class ServiciosComponent implements OnDestroy, OnInit {
         this.dtTrigger.next(null);
       },
       error: (e) => {
-        console.log(e);
-        console.log("NO ok");
+        Swal.fire({
+          title:'Error',
+          icon: 'error',
+          text:'There are no services available at this time',
+          confirmButtonColor:'#be8f8c'
+        });
       }
     }
   )}

@@ -44,7 +44,8 @@ export class LoginComponent implements OnInit {
           Swal.fire({
             title:'Error',
             icon: 'error',
-            text:resp.error.mensaje
+            text:resp.error.mensaje,
+            confirmButtonColor:'#be8f8c'
           });
         }
      });

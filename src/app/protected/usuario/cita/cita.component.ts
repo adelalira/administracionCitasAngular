@@ -2,8 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiciosService } from 'src/app/servicios/services/servicios.service';
 import Swal from 'sweetalert2';
-import { Cita } from '../../interface/cita';
-import { Servicio } from '../../interface/servicios';
+import { ListaCita, Servicio} from '../../interface/lineaCitaServicio';
 import { UsuarioService } from '../service/usuario.service';
 
 @Component({
@@ -39,8 +38,8 @@ export class CitaComponent implements OnInit {
  * CREAMOS LAS VARIABLES NECESARIAS
  */
   dia!:string;
-  servicios:Servicio[]=[]
-  cita:Cita[]=[];
+  servicio:Servicio[]=[]
+  cita:ListaCita[]=[];
   serviciosPedido:Servicio[]=[]
 
 
@@ -51,20 +50,19 @@ export class CitaComponent implements OnInit {
     this.servicioDeUsuario.enviarCita(this.dia)
     .subscribe({
       next: (resp => {
-        console.log(resp)
         this.cita=resp;
-        console.log(resp)
         Swal.fire({
           title:'Appointment is available',
           icon: 'success',
+          confirmButtonColor:'#be8f8c'
         });
      }),
       error: resp => {
-        console.log(resp.message);
         Swal.fire({
           title:'Error',
           icon: 'error',
-          text:resp.error.mensaje
+          text:resp.error.mensaje,
+          confirmButtonColor:'#be8f8c'
         });
       }
    });
@@ -83,11 +81,15 @@ export class CitaComponent implements OnInit {
   mostrarServicios(){
     this.servicioDeServicios.buscaServiciosOfrecidos().subscribe({
       next: (resp:any) => {
-        this.servicios=resp;
+        this.servicio=resp;
       },
       error: (e) => {
-        console.log(e);
-        console.log("NO ok");
+        Swal.fire({
+          title:'Error',
+          icon: 'error',
+          text:'There are no services available at this time',
+          confirmButtonColor:'#be8f8c'
+        });
       }
     }
   )
@@ -101,26 +103,28 @@ export class CitaComponent implements OnInit {
       Swal.fire({
         title:'Error',
         icon: 'error',
-        text:'You must first choose an available appointment'
+        text:'You must first choose an available appointment',
+        confirmButtonColor:'#be8f8c'
+
       });
     }
     this.servicioDeUsuario.addServicio(this.serviciosPedido,this.cita)
     .subscribe({
       next: (resp => {
-        console.log(resp)
         Swal.fire({
           title:'Your appointment has been requested successfully',
           icon: 'success',
+          confirmButtonColor:'#be8f8c'
         });
 
       this.router.navigateByUrl('/protected/usuario'); 
      }),
       error: resp => {
-        console.log(resp.message);
         Swal.fire({
           title:'Error',
           icon: 'error',
-          text:resp.error.mensaje
+          text:resp.error.mensaje,
+          confirmButtonColor:'#be8f8c'
         });
       }
    });

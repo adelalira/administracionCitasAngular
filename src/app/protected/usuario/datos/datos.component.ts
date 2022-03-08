@@ -2,15 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { UsuarioService } from '../service/usuario.service';
 import { Usuario } from '../../../auth/interface/usuario';
-import { Cita } from '../../interface/cita';
-
+import { ListaCita, ListaServicio } from '../../interface/lineaCitaServicio';
 @Component({
   selector: 'app-datos',
   templateUrl: './datos.component.html',
   styleUrls: ['./datos.component.css']
 })
 export class DatosComponent implements OnInit {
-
   /**
    * INYECTAMOS USUARIOSERVICE
    * @param servicioDeUsuario 
@@ -20,7 +18,9 @@ export class DatosComponent implements OnInit {
  * CREAMOS UN USUARIO Y CITA
  */
   usuario:Usuario = {name:"",lastname:"",dni:"",telephone:0,email:"",password:""};
-  citas:Cita[]=[];
+  citas:ListaCita[]=[];
+  datos:boolean=false;
+  listaServicios:ListaServicio[]=[]
 
   /**
    * AL CARGAR LA PAGINA INICIAMOS LOS METODOS CARGARDATOSUSUARIO Y CARGARCITASUSUARIO QUE NOS MUESTRA LOS DATOS
@@ -41,11 +41,11 @@ export class DatosComponent implements OnInit {
         this.usuario=resp;
      }),
       error: resp => {
-        console.log(resp.message);
         Swal.fire({
           title:'Error',
           icon: 'error',
-          text:resp.error.mensaje
+          text:resp.error.mensaje,
+          confirmButtonColor:'#be8f8c'
         });
       }
    });
@@ -58,16 +58,14 @@ export class DatosComponent implements OnInit {
     this.servicioDeUsuario.buscaCitasUsuario()
     .subscribe({
       next: (resp => {
-        console.log(resp)
         this.citas=resp;
-       
      }),
       error: resp => {
-        console.log(resp.message);
         Swal.fire({
           title:'Error',
           icon: 'error',
-          text:resp.error.mensaje
+          text:resp.error.mensaje,
+          confirmButtonColor:'#be8f8c'
         });
       }
    });
@@ -80,12 +78,10 @@ export class DatosComponent implements OnInit {
     this.servicioDeUsuario.cancelDate(idC)
     .subscribe({
       next: (resp => {
-        console.log(resp)
         this.cargarCitasUsuario();
        
      }),
       error: resp => {
-        console.log(resp.message);
         if(resp.message==null){
           this.cargarCitasUsuario();
         }
@@ -93,13 +89,35 @@ export class DatosComponent implements OnInit {
           Swal.fire({
             title:'Error',
             icon: 'error',
-            text:'The selected appointment could not be deleted'
+            text:'The selected appointment could not be deleted',
+            confirmButtonColor:'#be8f8c'
           });
         }
        
       }
    });
   }
+
+
+  mostrarInfo(idC:number){
+    this.servicioDeUsuario.mostrarInfo(idC)
+    .subscribe({
+      next: (resp => {
+        this.listaServicios=resp;
+        console.log(this.listaServicios)
+     }),
+      error: resp => {
+          Swal.fire({
+            title:'Error',
+            icon: 'error',
+            text:'The selected appointment could not be deleted',
+            confirmButtonColor:'#be8f8c'
+          });
+        }
+   });
+  }
+
+
 
 
 }

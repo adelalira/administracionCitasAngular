@@ -67,6 +67,7 @@ export class HomeComponent implements OnInit {
         Swal.fire({
           title:'Your email has been requested successfully',
           icon: 'success',
+          confirmButtonColor:'#be8f8c'
         });
         //reseteamos el formulario
         this.miFormulario.reset({
@@ -83,7 +84,8 @@ export class HomeComponent implements OnInit {
       Swal.fire({
         title:'Error',
         icon: 'error',
-        text:resp.error.mensaje
+        text:resp.error.mensaje,
+        confirmButtonColor:'#be8f8c'
       });
     }
    });

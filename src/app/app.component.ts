@@ -10,6 +10,7 @@ import { filter, Subscription } from 'rxjs';
 export class AppComponent {
   title = 'AdministradosDeCitas';
 
+  fontSize = 14;
 
   public subscriber!: Subscription; 
    registrado: boolean = false;
@@ -40,10 +41,17 @@ export class AppComponent {
     this.subscriber?.unsubscribe();
   }
 
+  /**
+   * BORRAR EL TOKEN PARA CERRAR SESION
+   */
   deletetoken(){
       localStorage.clear();
+  }
 
-   
+
+  changeFont(operator:any){
+    operator === '+' ? this.fontSize++ : this.fontSize--;
+    document.getElementsByTagName('body')[0].style.fontSize  = `${this.fontSize}px`;
   }
 
 

@@ -1,56 +1,56 @@
 <div class="row">
-  <div class="col-lg-12 col-xs-6">
-      <h1 class="text-center titulo"> WELCOME {{usuario.name | uppercase}} TO USER ZONE!</h1>
-      <div class="frame text-center">
-          <button class="custom-btn btn"  (click)="datas()"><span>Check my data</span></button>
-          <button class="custom-btn btn"  (click)="askDate()"><span>Ask for a date</span></button>
-        </div>
-  </div>
-</div>
-
-<div *ngIf="dateVisible">
-    <app-cita></app-cita>
-</div>
-
-<div *ngIf="dataVisible">
-    <app-datos></app-datos>
-</div>
-
-<div class="row paddingCards " *ngIf="imgVisible">
-
-  <div class="card__container m-lg-auto m-md-auto separacion">
-      <img src="./assets/img/fotoServicios2.jpg" (click)="askDate()"  alt="imagen de un minicarro de la compra y un ordenador portatil" class="card__photo">
-  <!--     <div class="card__photo"></div> -->
-      <div class="card__description">Discount 5%</div>
-      </div>
-
-      <div class="card__container m-lg-auto m-md-auto separacion">
-      <img src="./assets/img/fotoServicios1.jpg" (click)="askDate()" alt="imagen constituida con fragmentos de diferentes elementos como un ordenador, un minicarro de la compra, dinero y un cartel luminoso" class="card__photo">
-  <!--     <div class="card__photo"></div> -->
-      <div class="card__description">Discount from €200</div>
-      </div>
-
-      <div class="card__container m-lg-auto m-md-auto separacion">
-      <img src="./assets/img/fotoServicios3.jpg" (click)="askDate()" alt="imagen de un minicarro de la compra y un ordenador portatil" class="card__photo">
-  <!--     <div class="card__photo"></div> -->
-      <div class="card__description">Discount 5%</div>
-      </div>
-
-      
-</div>
-
-<div class="row text-center">
-    <div class="col-12">
-        <button class="custom-btn btn-2 mt-5"  *ngIf="buttonBack" (click)="zoneUser()">Back</button>
+    <div class="col-lg-12 col-xs-6">
+        <h1 class="text-center titulo"> WELCOME {{usuario.name | uppercase}} TO USER ZONE!</h1>
+        <div class="frame text-center">
+            <button class="custom-btn btn"  (click)="datas()"><span>Check my data</span></button>
+            <button class="custom-btn btn"  (click)="askDate()"><span>Ask for a date</span></button>
+          </div>
     </div>
-</div>
-
-<div class="text-center mt-5">
-    <p> Appointments: {{messageChild}} </p>
-    <app-child (eventChild)="onMessageChild($event)"> </app-child>  
-</div>
-
-
-
-
-<app-floating-button ubicacion="User"></app-floating-button>
+  </div>
+  
+  <div *ngIf="dateVisible">
+      <app-cita></app-cita>
+  </div>
+  
+  <div *ngIf="dataVisible">
+      <app-datos></app-datos>
+  </div>
+  
+  <div class="row paddingCards " *ngIf="imgVisible">
+  
+    <div class="card__container m-lg-auto m-md-auto separacion">
+        <img src="../../../assets/img/fotoServicios2.jpg" (click)="askDate()"  alt="imagen de un minicarro de la compra y un ordenador portatil" class="card__photo">
+    <!--     <div class="card__photo"></div> -->
+        <div class="card__description">Discount 5%</div>
+        </div>
+  
+        <div class="card__container m-lg-auto m-md-auto separacion">
+        <img src="../../../assets/img/fotoServicios1.jpg" (click)="askDate()" alt="imagen constituida con fragmentos de diferentes elementos como un ordenador, un minicarro de la compra, dinero y un cartel luminoso" class="card__photo">
+    <!--     <div class="card__photo"></div> -->
+        <div class="card__description">Discount from €200</div>
+        </div>
+  
+        <div class="card__container m-lg-auto m-md-auto separacion">
+        <img src="../../../assets/img/fotoServicios3.jpg" (click)="askDate()" alt="imagen de un minicarro de la compra y un ordenador portatil" class="card__photo">
+    <!--     <div class="card__photo"></div> -->
+        <div class="card__description">Discount 5%</div>
+        </div>
+  
+        
+  </div>
+  
+  <div class="row text-center">
+      <div class="col-12">
+          <button class="custom-btn btn-2 mt-5"  *ngIf="buttonBack" (click)="zoneUser()">Back</button>
+      </div>
+  </div>
+  
+  <div class="text-center mt-5">
+      <p> Appointments: {{messageChild}} </p>
+      <app-child (eventChild)="onMessageChild($event)"> </app-child>  
+  </div>
+  
+  
+  
+  
+  <app-floating-button ubicacion="User"></app-floating-button>

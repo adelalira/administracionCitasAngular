@@ -11,8 +11,14 @@
         <div class="col-md-6 col-12 text-center" >
             <h2><strong>Cita: </strong></h2>
                 <div *ngFor="let i of citas" class="mt-3">
-                    <span class="label label-default mx-3">Dia: {{i.dia | date: 'dd-MM-yyyy'}}</span>
-                    <span class="label label-default">Hora: {{i.dia | date: 'HH:mm'}}</span><br>
+                    <span class="label label-default mx-3"><strong>Dia:</strong> {{i.dia | date: 'dd-MM-yyyy'}}</span><br>
+                    <span class="label label-default"><strong>Hora:</strong> {{i.dia | date: 'HH:mm'}}</span><br><br>
+
+                    <div *ngFor="let j of i.listaServicios" >
+                        <span class="label label-default"><strong>Servicio:</strong> {{j.servicio.nombre}}</span><br> <br>
+                        <span class="label label-default"><strong>Precio:</strong> {{j.servicio.precio}}</span><br> <br>
+                        <span class="label label-default"><strong>Descuento aplicado:</strong> {{j.descuento}}</span><br> 
+                    </div> 
                     <button class="custom-btn btn" (click)="cancelDate(i.id)">Cancelar</button>
 
                 </div> 

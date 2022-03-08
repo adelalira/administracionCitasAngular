@@ -116,11 +116,11 @@ export class UsuarioComponent implements OnInit {
         
      }),
       error: resp => {
-        console.log(resp.message);
         Swal.fire({
           title:'Error',
           icon: 'error',
-          text:resp.error.mensaje
+          text:resp.error.mensaje,
+          confirmButtonColor:'#be8f8c'
         });
       }
    });

@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import Swal from 'sweetalert2';
-import { Cita } from '../../interface/cita';
 import { UsuarioService } from '../service/usuario.service';
 
 @Component({
@@ -48,16 +47,15 @@ export class ChildComponent implements OnInit {
     this.userService.buscaCitasUsuario()
     .subscribe({
       next: (resp => {
-        console.log(resp)
         this.citaslongitud=resp.length;
        
      }),
       error: resp => {
-        console.log(resp.message);
         Swal.fire({
           title:'Error',
           icon: 'error',
-          text:resp.error.mensaje
+          text:resp.error.mensaje,
+          confirmButtonColor:'#be8f8c'
         });
       }
    });

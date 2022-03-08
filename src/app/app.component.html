@@ -35,6 +35,14 @@
       <div class="text-center text-dark">
         <a href="https://www.linkedin.com/in/adela-mar%C3%ADa-lira-s%C3%A1nchez-6421391a6/" class="decoracionFooter" >Aplicación desarrollada por Adela Lira <i class="fa-regular fa-face-grin-hearts"></i></a>
         <img src="./assets/icon/programmer.png" class="developer" alt="chica programando">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Accesibilidad      </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" (click)="changeFont('+')" id="font-up">Aumentar texto</a></li>
+              <li><a class="dropdown-item" (click)="changeFont('-')" id="font-down">Dismunir texto</a></li>
+            </ul>
+          </div>
       </div>
     </footer>
   </div>
