@@ -42,7 +42,7 @@ p{
   
   /**CSS BOTON**/
   .btn {
-    width: 340px;
+    width: 150px;
     height: 45px;
     font-family: 'Roboto', sans-serif;
     font-size: 11px;
@@ -65,5 +65,3 @@ p{
     color: #fff;
     transform: translateY(-7px);
   }
-
-  
