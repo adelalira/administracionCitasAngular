@@ -24,6 +24,8 @@ export class HomeComponent implements OnInit {
               private router:Router,
               private authService:AuthService) { }
 
+  fontSize = 20;
+
   /**
    * CREAMOS UNA VARIABLE MIFORMULARIO DONDE METIMOS TODOS LOS ATRIBUTOS DE MENSAJE PARA VALIDARLOS
    */
@@ -92,5 +94,13 @@ export class HomeComponent implements OnInit {
     
 
   }
+
+  changeFont(operator:any){
+    operator === '+' ? this.fontSize++ : this.fontSize--;
+    document.getElementsByTagName('p')[0].style.fontSize  = `${this.fontSize}px`;
+    document.getElementsByTagName('p')[1].style.fontSize  = `${this.fontSize}px`;
+    document.getElementsByTagName('h1')[0].style.fontSize  = `${this.fontSize}px`;
+  }
+
 
 }
