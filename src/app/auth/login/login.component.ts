@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
   email !: string;
   password !: string;
 
+  fontSize = 20;
+
   /**
    * INYECTAMOS EN EL CONSTRUCTOR ROUTER Y AUTHSERVICE
    * @param router 
@@ -59,6 +61,11 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('userId', JSON.stringify(resp));
       this.router.navigateByUrl(`/protected/usuario/${resp}`);
     });
+  }
+
+  changeFont(operator:any){
+    operator === '+' ? this.fontSize++ : this.fontSize--;
+    document.getElementsByTagName('form')[0].style.fontSize  = `${this.fontSize}px`;
   }
 
 }
